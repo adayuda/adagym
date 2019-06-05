@@ -1,0 +1,374 @@
+
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Laundry CRV | Dashboard</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+ <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+    <link rel="stylesheet" href="dist/css/style.css">
+
+    <style>
+        .tbl>thead>tr>th, .tbl>tbody>tr>th, .tbl>tfoot>tr>th, .tbl>thead>tr>td, .tbl>tbody>tr>td, .tbl>tfoot>tr>td {
+            border-top: 0;
+        }
+        .autocomplete-suggestions { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+        .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+        .autocomplete-no-suggestion { padding: 2px 5px;}
+        .autocomplete-selected { background: #F0F0F0; }
+        .autocomplete-suggestions strong { font-weight: bold; color: #000; }
+        .autocomplete-group { padding: 2px 5px; font-weight: bold; font-size: 16px; color: #000; display: block; border-bottom: 1px solid #000; }
+    </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="../../index.php" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>CRV</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg">Laundry <b>CRV</b></span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  rama - kasir
+                  <small>12-12-12</small>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-right">
+                  <a href="logout.php" class="btn btn-default btn-flat">Log Out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>rama</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="header">MENU PROGRAM</li>
+        <!-- Optionally, you can add icons to the links -->
+
+                    <li><a href='../../index.php'><i class='fa fa-dashboard'></i> <span>Dashboard</span></a></li>
+                    <li><a href='../akun/'><i class='fa fa-file'></i> <span>Data Akun</span></a></li>
+                      <li><a href='../karyawan/'><i class='fa fa-file'></i> <span>Data Karyawan</span></a></li>
+                      <li><a href='../jenis_laundry/'><i class='fa fa-file'></i> <span>Data Jenis Laundry</span></a></li>
+                      <li><a href='../transaksi/'><i class='fa fa-file'></i> <span>Data Transaksi</span></a></li>
+                      <li><a href='../transaksi/data-laundry.php'><i class='fa fa-file'></i> <span>Data Laundry</span></a></li>
+                      <li><a href='../pengeluaran/'><i class='fa fa-file'></i> <span>Data Pengeluaran</span></a></li>
+
+                    <li class='treeview'>
+                      <a href='#'><i class='fa fa-file'></i> <span>Laporan</span>
+                        <span class='pull-right-container'>
+                            <i class='fa fa-angle-left pull-right'></i>
+                          </span>
+                      </a>
+                      <ul class='treeview-menu'>
+                        <li><a href='../laporan/laporan-transaksi.php'>Laporan Transaksi</a></li>
+                        <li><a href='../laporan/laporan-pengeluaran.php'>Laporan Pengeluaran</a></li>
+                        <li><a href='../laporan/laporan-keuntungan.php'>Laporan Keuntungan</a></li>
+                      </ul>
+                    </li>";
+
+
+      </ul>
+      <!-- /.sidebar-menu -->
+
+
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        FORM TRANSAKSI
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+
+      <!--------------------------
+        | Your Page Content Here |
+        -------------------------->
+       <div class="box">
+
+           <form action="insert-transaksi.php" method="post">
+                <div class="box-header">
+
+                    <div class="col-sm-5">
+                        <table class="table tbl">
+                                <tr>
+                                    <td>Nama Karyawan</td>
+                                    <td>
+                                        <input type="text" name="NamaKaryawan" class="form-control" value="Rama" readonly>
+                                        <input type="hidden" name="IdKaryawan" class="form-control" value="">
+                                    </td>
+                                    <td>Tanggal</td>
+                                    <td><input type="text" name="Tanggal" class="form-control" value="12-12-12" readonly></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Nama Customer</td>
+                                    <td colspan="3"><input type="text" name="NamaCustomer" class="form-control" required></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Catatan</td>
+                                    <td colspan="3"><textarea class="form-control" rows="2" name="Catatan" onfocus="this.select()">-</textarea></td>
+                                </tr>
+                            </table>
+                    </div>
+                    <div class="col-sm-7">
+                        <p id="Total" class="text-right" style="font-size: 100px;">0</p>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div class="col-lg-12 style-col pad">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <th>No</th>
+                                    <th>Id JenisLaundry</th>
+                                    <th>Nama JenisLaundry</th>
+                                    <th>Qty</th>
+                                    <th>Harga</th>
+                                    <th>Diskon (%)</th>
+                                    <th>Sub Total</th>
+                                </thead>
+
+                                <tbody>
+                                    <tr onkeydown="del(this)">
+                                        <td>1</td>
+                                        <td><input type="text" name="IdJenisLaundry[]" class="form-control input-bg" onchange='viewJL(this)' required></td>
+                                        <td><input type="text" name="NamaJenisLaundry[]" class="form-control input-bg id-JL" required></td>
+                                        <td><input type="number" name="Qty[]" step="0.1" class="form-control input-bg" value=1 onkeydown="dblTab(this,'HargaJual')" onblur="calculate(this)" required></td>
+                                        <td><input type="number" name="HargaJual[]" class="form-control input-bg" value=0 onblur="calculate(this)" readonly required></td>
+                                        <td><input type="number" name="Diskon[]" class="form-control input-bg" value=0 onblur="calculate(this)" required></td>
+                                        <td><input type="number" name="SubTotal[]" class="form-control input-bg" onkeydown="subTtl(this)" readonly required></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-right">
+                                <button type="button" data-toggle="modal" data-title="view" data-target="#tmpl_jl" class="btn btn-info" onclick="viewInfoJL()">Lihat Data Jenis Laundry</button>
+                                <button type="button" onclick="reprint()" class="btn btn-success">Print Ulang</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="modal fade" id="pnj" style="display: none;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Penjualan</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        <div class="form-group">
+                            <label class="text-center">Total</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp. </span>
+                                <input type="number" id="TotalForm" name="Total" class="form-control input-bg" readonly required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Potongan</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp. </span>
+                                <input type="number" id="Ptngan" name="Potongan" value="0" class="form-control input-bg" onfocus="this.select()" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Biaya Tambahan</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp. </span>
+                                <input type="number" id="BiayaTambahan" name="BiayaTambahan" value="0" class="form-control input-bg" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Grand Total</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">Rp. </span>
+                                <input type="number" id="grndTtal" name="GrandTotal" class="form-control input-bg" readonly required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Status Bayar</label>
+                              <select class="form-control" name="StatusBayar" id="StatusBayar">
+                                <option value="0">Tidak Bayar</option>
+                                <option value="1">Bayar</option>
+                              </select>
+                        </div>
+
+                        <div id="byrr">
+
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                          <button type="submit" class="btn btn-warning">Simpan</button>
+                          <button type="submit" name="saveprint" class="btn btn-success">Simpan & Print</button>
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+                </div>
+
+                <div class="modal fade" id="tmpl_jl" style="display: none;">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Data Jenis Laundry</h4>
+                      </div>
+                      <div class="modal-body">
+                          <table class="table table-bordered" >
+                           <thead>
+                            <tr>
+                              <th>Id Jenis Laundry</th>
+                              <th>Nama Jenis Laundry</th>
+                              <th>Harga</th>
+                            </tr>
+                           </thead>
+                           <tbody id="data-info-jl">
+
+                           </tbody>
+                          </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                    <!-- /.modal-content -->
+                  </div>
+                  <!-- /.modal-dialog -->
+                </div>
+
+
+            </form>
+
+          </div>
+          <!-- /.box -->
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2018 <a href="#">Company</a>.</strong> All rights reserved.
+  </footer>
+
+
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+</html>

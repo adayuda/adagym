@@ -1,0 +1,68 @@
+<?php
+	/**
+	 * 
+	 */
+	class Barang extends Ci_Controller{
+		
+		function __construct(){		
+			parent::__construct();
+			$this->load->model('M_barang','p');
+			$this->akses=$this->session->userdata('akses');
+		}
+
+		function index(){
+			$gym = $this->session->userdata('ses_id');
+			if($this->akses==2){
+				$data['barang'] = $this->p->getperbarang($gym, NULL);
+				$this->load->view('barang/barang_view', $data);
+			}else{
+				print_r('error');
+			}	
+		}
+
+		function input(){
+			$this->load->view('barang/barang_input');
+		}
+
+		public function showAllBarang() {
+			$gym = $this->session->userdata('ses_id');
+			echo json_encode($this->p->showAllBarang($gym));
+		}
+
+		public function editBarang() {
+			$gym 	= $this->session->userdata('ses_id');
+			$kd 	= $this->input->post('kd_barang');
+			echo json_encode($this->p->getperbarang($gym, $kd));
+		}
+
+		public function qupdateBarang() {
+			$this->p->updateBarang();
+		}
+
+		public function addbarang() {
+			$gym 	= $this->session->userdata('ses_id');
+
+			$kd 	= $this->input->post('kode');
+			$nama 	= $this->input->post('nama');
+			$harga 	= $this->input->post('harga');
+			$stok 	= $this->input->post('stok');
+
+			$cek_barang = $this->p->cekdatabarang($kd);
+
+			if ($cek_barang == 0) {
+				$this->p->addTblBarang($kd, $nama);
+			}
+		
+			$this->p->addTblBarangGym($kd, $gym, $harga, $stok);
+
+			redirect(site_url('barang'));
+		}
+
+		public function deleteBarang() {
+			$kd_paket=$this->uri->segment(3);
+ 			$this->db->where('kd_paket',$kd_paket);
+ 			$this->db->delete('tbl_paket');
+ 			redirect('paket');
+		}
+ 	}
+?>

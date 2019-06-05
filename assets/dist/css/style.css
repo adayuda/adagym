@@ -1,0 +1,8 @@
+.small-box .icon {
+    top: 0px;
+}
+.tbl tbody tr td{
+    vertical-align:middle;
+    text-align: left;
+    border: 0;
+}
