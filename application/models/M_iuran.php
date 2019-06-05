@@ -8,7 +8,7 @@
 		// function __construct(argument)
 		// {
 		// 	# code...
-		// }
+		// }kontol
  
 		function view(){
 			$kd_gym = $this->session->userdata('ses_id');
