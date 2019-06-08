@@ -8,11 +8,15 @@
 		// function __construct(argument)
 		// {
 		// 	# code...
-		// }kontol
+		// }kontol panja
  
 		function view(){
 			$kd_gym = $this->session->userdata('ses_id');
-			$iuran 	= $this->db->query('SELECT tbl_member.nama, MONTH(tgl_bayar) AS awal, MONTH(tgl_akhir) AS ~akhir, tbl_iuran.tgl_akhir , tbl_iuran.kd_iuran
+			$iuran 	= $this->db->query('SELECT tbl_member.nama, 
+										-- MONTH(tgl_bayar) AS awal, MONTH(tgl_akhir) AS akhir, 
+										tbl_iuran.tgl_bayar AS awal, 
+										tbl_iuran.tgl_akhir AS akhir,
+										tbl_iuran.tgl_akhir, tbl_iuran.kd_iuran, tbl_iuran.kd_member
 										FROM tbl_iuran
 										JOIN tbl_member
 										ON tbl_iuran.kd_member = tbl_member.kd_member 

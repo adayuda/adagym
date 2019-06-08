@@ -33,7 +33,7 @@
 		            $this->session->set_userdata('ses_nama',$data['nama']);
 		            redirect('page');
 
-	        }else{ //jika login sebagai mahasiswa
+	        }else{ 
 				$cek_member=$this->m_login->auth_member($username,$password);
 				
 				if($cek_member->num_rows() > 0){

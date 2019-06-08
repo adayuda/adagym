@@ -242,20 +242,55 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h3 class="modal-title">
-                                TEST
+                                Daftar GYM
                             </h3>
                         </div>
                         <div class="modal-body">
                             <div class="container" id="wizardx">
-                                <h3>STEP 1</h3>
+                                <h3>Data Diri </h3>
                                 <section>
-                                    
+                                    <label for="name-2"> Name *</label>
+                                    <input id="nama" name="nama" type="text" class="required">
+                                    <label for="age-2"> Umur *</label>
+                                    <input id="umur" name="umur"type="text">
+                                    <div class="form-group">
+                                    <label for="name -2">Jenis Kelamin *</label>
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="jk" id="optionsRadios1" value="Laki-Laki" checked="">
+                                            Laki-Laki
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                            <input type="radio" name="jk" id="optionsRadios2" value="Perempuan">
+                                            Perempuan
+                                            </label>
+                                        </div>
+                                        </div>
+                                    <label for="">No Telp *</label>
+                                    <input id="tlp" name="tlp" type="number" class="required">
+                                    <label for="address-2">Alamat *</label>
+                                    <input type="text" name="alamat" id="alamat" class="required">
+                                    <label for="email-2">Email *</label>
+                                    <input id="email" name="email" type="text" class="required email">
                                 </section>
-                                <h3>STEP 2</h3>
+                                <h3>Data Daftar</h3>
                                 <section>
-                                    
+                                    <label for="name-2">Nama GYM</label>
+                                    <input type="text">
+                                    <label for="name-2">Tanggal Daftar</label>
+                                    <input type="text">
+                                    <label for="name-2">Harga Daftar </label>
+                                    <input type="text" name="" id="">
+                                    <label for="name-2">Pilih Package</label>
+                                    <input type="text">
+                                    <label for="name-2">Harga Package</label>
+                                    <input type="text">
+                                    <label for="name-2">Sub Total</label>
+                                    <input type="text">
                                 </section>
-                                <h3>STEP 3</h3>
+                                <h3>Transaksi</h3>
                                 <section>
                                     
                                 </section>

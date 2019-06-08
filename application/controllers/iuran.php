@@ -13,9 +13,26 @@ class iuran extends CI_Controller
 	function index(){
 		
 		if($this->akses==2){
-		
 
-		$data['iuran'] = $this->i->view()->result();
+		$iuran = $this->i->view()->result();
+		$mapping = array();
+		foreach($iuran as $val){
+			if(!isset($mapping[$val->kd_member])){
+				$mapping[$val->kd_member] = array(
+					"nama" => $val->nama,
+					"data" => array()
+				);
+			}
+			$mapping[$val->kd_member]['tgl_akhir'] = $val->tgl_akhir;
+			$mapping[$val->kd_member]['data'] = array_merge($mapping[$val->kd_member]['data'], array(array(
+				"tgl_bayar" => date("Ym", strtotime($val->awal)),
+				"tgl_akhir" => date("Ym", strtotime($val->akhir)),
+				"kd_iuran" => $val->kd_iuran,
+				
+			)));
+		}
+
+		$data["iuran"] = $mapping;
 		$this->load->view('iuran/iuran_view',$data);
 		}
 		else{
