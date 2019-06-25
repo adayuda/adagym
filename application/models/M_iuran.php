@@ -16,12 +16,28 @@
 										-- MONTH(tgl_bayar) AS awal, MONTH(tgl_akhir) AS akhir, 
 										tbl_iuran.tgl_bayar AS awal, 
 										tbl_iuran.tgl_akhir AS akhir,
-										tbl_iuran.tgl_akhir, tbl_iuran.kd_iuran, tbl_iuran.kd_member
+										tbl_iuran.kd_paket,
+										tbl_paket.nama_paket,
+										tbl_iuran.harga,
+										tbl_iuran.tgl_akhir,
+										tbl_iuran.tgl_bayar,
+										tbl_iuran.kd_iuran, tbl_iuran.kd_member
 										FROM tbl_iuran
 										JOIN tbl_member
 										ON tbl_iuran.kd_member = tbl_member.kd_member 
+										JOIN tbl_paket
+										ON tbl_iuran.kd_paket = tbl_paket.kd_paket
 										INNER JOIN tbl_gym
 										ON tbl_gym.kd_gym = tbl_iuran.kd_gym
+										WHERE tbl_iuran.kd_gym = '. $kd_gym.
+										' ORDER BY tbl_member.nama ASC, tbl_iuran.tgl_akhir ASC'
+										);
+			return $iuran;
+		}
+
+		function lap(){
+			$kd_gym = $this->session->userdata('ses_id');
+			$iuran 	= $this->db->query('SELECT * FROM tbl_iuran 
 										WHERE tbl_iuran.kd_gym = '. $kd_gym
 										);
 			return $iuran;
@@ -34,7 +50,7 @@
 		function get_paket(){
 			$kd_gym = $this->session->userdata('ses_id');
 			$paket = $this->db->query('SELECT 	tbl_paket.kd_paket,
-												tbl_paket.nama,
+												tbl_paket.nama_paket,
 												tbl_paket.harga
 									   FROM tbl_paket
 									   WHERE tbl_paket.kd_gym = '.$kd_gym

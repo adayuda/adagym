@@ -39,7 +39,7 @@
  	}
 
  	function update($kd_member,$data){
- 		$this->db->where('kd_member	',$id);
+ 		$this->db->where('kd_member	',$id); 
  		$this->db->update('tbl_member', $data);
  	}
 

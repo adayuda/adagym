@@ -141,22 +141,20 @@
  		redirect('member');
  	}
 
- 	function register(){
- 		$this->load->view('register_view');
- 	}
- 	function tambah_register(){
- 		$regis = array(
- 			'nama' 		=> $this->input->post('nama'),
- 			'email'		=> $this->input->post('email'),
-			'password'	=> $this->input->post('password')
-			);
- 		$this->db->insert('tbl_member',$regis);
- 		redirect('login/aksi_login');
- 	}
+ 	// function register(){
+ 	// 	$this->load->view('register_view');
+ 	// }
+ 	// function tambah_register(){
+ 	// 	$regis = array(
+ 	// 		'nama' 		=> $this->input->post('nama'),
+ 	// 		'email'		=> $this->input->post('email'),
+	// 		'password'	=> $this->input->post('password')
+	// 		);
+ 	// 	$this->db->insert('tbl_member',$regis);
+ 	// 	redirect('login/aksi_login');
+ 	// }
 
- 	function pilih_gym(){
- 		
- 	}
+ 	
 }	 
 
 ?>

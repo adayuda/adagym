@@ -1,4 +1,23 @@
 <?php $this->load->view('header');?>
+          <div class="breadcrumbs" style="margin-top:5px">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                    <h1>Data Iuran</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Data Iuran</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <div class="content mt-3">
             <div class="animated fadeIn">
                 <div class="row">
@@ -6,7 +25,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Data iuran</strong>
+                                <!-- <strong class="card-title">Data iuran</strong> -->
 
                             </div>
                             <div class="card-body">
@@ -15,6 +34,7 @@
                               if(isset($_GET['year'])) {
                                 $year = $_GET['year'];
                               }
+                              $today = date("Ymd");
                              ?>
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                                     <thead>
@@ -45,7 +65,7 @@
                                     <?php
                                     $no=1;
                                    
-                                    foreach ($iuran as $i) {
+                                    foreach ($iuran as $kd_member => $i) {
                                       // $awal   = $i->awal; 
                                       // $akhir  = $i->akhir; 
                                       $jani   = date('4');
@@ -100,7 +120,12 @@
                                             break;
                                           }
                                         }
-                                        if($isCheck){
+                                        $akhir = date("Ymd", strtotime($i['tgl_akhir']));
+                                        $akhirMonth = date("Ym", strtotime($i['tgl_akhir']));
+                                        // $akhirMonth = intval($i['tgl_akhir']);
+                                        if($x == intval($akhirMonth) && intval($akhir) < intval($today)){
+                                          echo "<td style=\"width:40px\"><a href=".site_url('iuran/pay/'.$kd_member)."><i class=\"fa fa-exclamation\"></i></a></td>";
+                                        }else if($isCheck){
                                           echo "<td style=\"width:40px\"><i class=\"fa fa-check fa-fw\"></i></td>";
                                         }else{
                                           echo "<td style=\"width:40px\"></td>";

@@ -3,9 +3,28 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<?php $this->load->view('header_in');?> 
+<?php $this->load->view('header');?> 
 
   <!--  -->
+  <div class="breadcrumbs" style="margin-top:5px">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                    <h1>Data Iuran</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li>Data Iuran </li>
+                            <li class="active">Add Iuran</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
     
     <style>
         .tbl>thead>tr>th, .tbl>tbody>tr>th, .tbl>tfoot>tr>th, .tbl>thead>tr>td, .tbl>tbody>tr>td, .tbl>tfoot>tr>td {
@@ -133,7 +152,7 @@ desired effect
 						                    <option value="0">pilih package</option>
 						                    <?php 
 						        				foreach($paket as $p){
-						        					echo " <option value=". $p['kd_paket'].">".$p['nama']."</option>";	
+						        					echo " <option value=". $p['kd_paket'].">".$p['nama_paket']."</option>";	
 						        				}
 						                    ?>
 						                   

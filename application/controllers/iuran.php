@@ -23,7 +23,7 @@ class iuran extends CI_Controller
 					"data" => array()
 				);
 			}
-			$mapping[$val->kd_member]['tgl_akhir'] = $val->tgl_akhir;
+			$mapping[$val->kd_member]['tgl_akhir'] = $val->akhir;
 			$mapping[$val->kd_member]['data'] = array_merge($mapping[$val->kd_member]['data'], array(array(
 				"tgl_bayar" => date("Ym", strtotime($val->awal)),
 				"tgl_akhir" => date("Ym", strtotime($val->akhir)),
@@ -33,6 +33,9 @@ class iuran extends CI_Controller
 		}
 
 		$data["iuran"] = $mapping;
+		
+		// header('Content-type:text/plain');
+		// echo str_replace("[", "[\n", json_encode($data));
 		$this->load->view('iuran/iuran_view',$data);
 		}
 		else{
@@ -71,6 +74,10 @@ class iuran extends CI_Controller
 		$data['paket'] = $this->i->get_paket();
 		$this->load->view('iuran/iuran_input', $data);
 	}
+	function pay(){
+		$data['paket'] = $this->i->get_paket();
+		$this->load->view('iuran/iuran_pay', $data);
+	}
 
 	function input_simpan(){
 		
@@ -83,6 +90,22 @@ class iuran extends CI_Controller
 		);
 		$a = $this->db->insert('tbl_daftar', $tambah_daftar);
 
+		$tambah = array(
+			'kd_iuran'		=> NULL,
+			'kd_member'		=> $this->input->post('kode'),
+			'kd_gym'		=> $gym,
+			'kd_paket'		=> $this->input->post('paket'),
+			'harga'			=> $this->input->post('harga_paket'),
+			'tgl_bayar'		=> date('Y-m-d'),
+			'tgl_akhir'		=> $this->input->post('tgl_akhir')
+		);
+
+		$this->db->insert('tbl_iuran',$tambah);
+	}
+	function input_pay(){
+		
+		$gym 	= $this->session->userdata('ses_id');
+		
 		$tambah = array(
 			'kd_iuran'		=> NULL,
 			'kd_member'		=> $this->input->post('kode'),
@@ -119,6 +142,11 @@ class iuran extends CI_Controller
 		$kd_paket 	= $this->input->post('kdpkt');
 		echo json_encode($this->i->get_paket_id($kd_gym, $kd_paket));
 		
+	}
+
+	function laporan(){
+		$data['iuran'] = $this->i->view()->result();
+		$this->load->view('laporan/lap_iuran',$data);
 	}
 }
 ?>

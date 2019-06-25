@@ -1,5 +1,23 @@
 <?php $this->load->view('header');?>
-
+<div class="breadcrumbs" style="margin-top:5px">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                    <h1>Data Penjualan</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right"> 
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li>Data Penjualan</li>
+                            <li class="active">Form Penjualan</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
   <script type="text/javascript" src="<?php echo base_url('assets/jquery/jquery-3.1.1.min.js'); ?>"></script> 
   <script type="text/javascript" src="<?php echo base_url('assets/jquery/bootstrap.min.js'); ?>"></script>
   <script type="text/javascript" src="<?php echo base_url('assets/sweetalert/sweetalert2.all.js');?>"></script>
@@ -94,10 +112,8 @@
   <!--  --><!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        FORM TRANSAKSI
-      </h1>
+    <section class="content-header" style="margin-top:15px  ">
+      
     </section>
     <!-- Main content -->
     <section class="content container-fluid">
@@ -120,7 +136,7 @@
                     <div class="col-sm-7" style="padding-top : 9">
                       <!-- <form action="" method="POST"> -->
                         <p id="Total" class="text-right" style="font-size: 100px;">
-                            <input type="number" name="kode_barang" id="kode_barang" class="form-control input-bg" style="height : 70px; font-size : 45pt" maxlength="15"/>
+                            <input type="text" name="kode_barang" id="kode_barang" class="form-control input-bg" style="height : 70px; font-size : 45pt" maxlength="15"/>
                         </p>
                         <p id="Total" class="text-right" style="font-size: 100px;">
                             <input type="text" name="qty_barang" id="qty_barang" class="form-control input-bg" style="height : 70px; font-size : 45pt; width:30%" maxlength="5"/>

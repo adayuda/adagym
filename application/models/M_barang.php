@@ -62,17 +62,17 @@ class M_barang extends Ci_Model
 	}
 
 	public function updateBarang(){
-		$id = $this->input->post('txtId');
+		$id = $this->input->post('id');
 		$field = array(
-			'harga'			=>$this->input->post('txtHarga'),
-			'stok'			=>$this->input->post('txtStok')
+			'harga'			=>$this->input->post('harga'),
+			'stok'			=>$this->input->post('stok')
 		);
 		$this->db->where('kd_barang', $id);
 		$this->db->update('tbl_barang_gym', $field);
 		if($this->db->affected_rows() > 0){
-			return true;
-		}else{
-			return false;
+			return array('error' => false, 'message' => 'success', 'data' => $this->input->post());
+		}else{ 
+			return array('error' => true, 'message' => "id:".$id.", error:".json_encode($field), 'data' => $this->input->post());
 		}
 	}
 
@@ -81,9 +81,9 @@ class M_barang extends Ci_Model
 		$this->db->where('kd_barang', $id);
 		$this->db->delete($this->tabel);
 		if($this->db->affected_rows() > 0){
-			return true;
+			return array('error' => false, 'message' => 'Success');
 		}else{
-			return false;
+			return array('error' => true, 'message' => $this->db->error()['message']);
 		}
 	}
 
@@ -135,14 +135,14 @@ class M_barang extends Ci_Model
 		$data = array(
 			'kd_barang' 	=> $kd,
 			'nama_barang'	=> $nama
-		);
+		); 
 		$query = $this->db->insert('tbl_barang', $data);
 	}
 
-	public function addTblBarangGym($kd_barang, $kd_gym, $harga, $stok) {
+	public function addTblBarangGym($kd, $gym, $harga, $stok) {
 		$data = array(
-			'kd_barang' 	=> $kd_barang,
-			'kd_gym'		=> $kd_gym,
+			'kd_barang' 	=> $kd,
+			'kd_gym'		=> $gym,
 			'harga' 		=> $harga,
 			'stok'			=> $stok
 		);

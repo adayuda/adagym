@@ -3,9 +3,28 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<?php $this->load->view('header_edit');?>
- 
+<?php $this->load->view('header');?> 
+
   <!--  -->
+  <div class="breadcrumbs" style="margin-top:5px">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                    <h1>Data Iuran</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li>Data Iuran </li>
+                            <li class="active">Form Iuran</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
     
     <style>
         .tbl>thead>tr>th, .tbl>tbody>tr>th, .tbl>tfoot>tr>th, .tbl>thead>tr>td, .tbl>tbody>tr>td, .tbl>tfoot>tr>td {
@@ -62,12 +81,10 @@ desired effect
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-       Form Iuran
-      </h1>
+     
     </section>
 
-    <!-- Main content --> 
+    <!-- Main content -->
     <section class="content container-fluid">
 
       <!--------------------------
@@ -75,32 +92,22 @@ desired effect
         -------------------------->
        <div class="box">
            
-      <?php 
-        $this->load->helper('form');
-        // echo form_open('iuran/update_simpan');
-        // echo form_hidden('kd_iuran',$this->uri->segment(3));
-      ?>
+          <?php 
+			$this->load->helper('form');
+			echo form_open('iuran/input_pay');
+      
+			?>
                 <div class="box-header">
 
                     <div class="col-sm-5">
                         <table class="table tbl">
                                 <tr>
-                                    <td><input type="hidden" id="newkdiuran" value="<?php echo $this->uri->segment(3); ?>"></td>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Sekarang</td>
-                                    <td><input type="text" name="Tanggal" class="form-control" value="<?php echo date('d-M-Y');?>" readonly></td>
-                                </tr>  
-
-                                <tr>
-                                    <td>Nama Member</td>
+                                    <td>Kode Member</td>
                                     <td>
-                                        <input type="text" name="kode" class="form-control" value="<?php echo $get_id['nama'];?>" readonly>    
+                                        <input type="text" name="kode" id="newkdmember" class="form-control" value="<?php echo $this->uri->segment(3);  ?>" readonly>
+                                       
                                     </td>
-                                </tr>
-
-
-                                
+                               </tr>
                             </table>
                     </div>
                     <!-- <div class="col-sm-7">
@@ -115,34 +122,42 @@ desired effect
                                 <thead>
                                     <th>No</th>
                                     <th>Pilih Paket</th>
+                                    <th>Tanggal Bayar</th>
                                     <th>Tanggal Aktif</th>
                                     <th>Harga</th>
+                                   <!--  <th>Diskon (%)</th> -->
+                                    <th>Sub Total</th>
                                 </thead>
+
                                 <tbody>
-                                    <tr onkeydown="del(this)">
+                                    <tr >
                                         <td>1</td>
-                                        <td>
-                                          <select id="paketcangg" data-placeholder="Pilih Package..." ul class="chosen-choices  " tabindex="1" name="paket" >
-                                            <option value="0">pilih package</option>
-                                            <?php 
-                                              foreach($paket as $p){
-                                                echo " <option value=". $p['kd_paket'].">".$p['nama']."</option>";  
-                                              }
-                                            ?>  
-                                          </select>
-                                        </td>
-                                        <td><input type="date" id="tglsuud" name="tgl_akhir" step="0.1" class="form-control input-bg" readonly required></td>
-                                        <td><input id="hargacng" type="number" name="HargaJual" class="form-control input-bg" readonly required></td>
+                                        <td><select id="paketcangg" data-placeholder="Pilih Package..." ul class="chosen-choices  " tabindex="1" name="paket" >
+						                    <option value="0">pilih package</option>
+						                    <?php 
+						        				foreach($paket as $p){
+						        					echo " <option value=". $p['kd_paket'].">".$p['nama_paket']."</option>";	
+						        				}
+						                    ?>
+						                   
+						                    
+						                </select></td>
+                                        	<td><input type="text" name="tgl_awal" class="form-control input-bg id-JL" value="<?php echo date('Y-m-d');?>"></td>
+
+                                       		<td><input type="date" id="tglsuud" name="tgl_akhir" step="0.1" class="form-control input-bg"  required></td>
+
+                                        	<td><input id="hargacng" type="number" name="harga-paket" class="form-control input-bg" readonly required></td>
+                                       
+                                        <td><input type="number" id="setTotal" name="total" class="form-control input-bg" readonly ></td>
                                     </tr>
-                                     
-                                    <tr>
-                                      <td colspan="3"><p align="right">Bayar</p></td>
-                                      <td><input type="text" name="total" id="setBayar" class="form-control input-bg" style="width:100%;font-size:30;"></td>
-                                    </tr>
-                                    <tr>
-                                      <td colspan="3"><p align="right">Kembalian</p></td>
-                                      <td><input type="text" name="total" id="setKembalian" class="form-control input-bg" style="width:100%;font-size:30;" readonly></td>
-                                    </tr>
+                                     <tr>
+                                          <td colspan="4"><p align="right">Bayar</p></td>
+                                          <td colspan="2"><input type="text" name="total" id="setBayar" style="width:100%;font-size:30;"></td>
+                                      </tr>
+                                      <tr>
+                                          <td colspan="4"><p align="right">Kembalian</p></td>
+                                          <td colspan="2"><input type="text" name="total" id="setKembalian" style="width:100%;font-size:30;" readonly></td>
+                                      </tr>
                                 </tbody>
                             </table>
                             <div class="text-right">
@@ -150,23 +165,36 @@ desired effect
                                  
                             </div>
                         </div>
-                      <?php echo form_close();?>
+				<?php echo form_close();?>
                     </div>
                 </div>
+                <!-- /.box-body -->
      
 
-            <!-- </form> -->
+            </form>
             
           </div>
+          <!-- /.box --> 
         
         
     </section>
+    <!-- /.content -->
   </div>
+  <!-- /.content-wrapper -->
+    
+  
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
 
 <script type="text/javascript">
   $('document').ready(function() {
@@ -195,6 +223,10 @@ desired effect
             console.log(get);
             console.log(kdpaket);
             $("#hargacng").val(get[0].harga);
+             var hargacng =parseInt($("#hargacng").val());
+             var total = hargacng ;
+             $("#setTotal").val(total);
+
             $('#setBayar').focus();
 
         }
@@ -207,24 +239,32 @@ desired effect
    $('document').ready(function() {
     $('#setBayar').on('keypress', function(e) {
         if(e.which == 13) {
-            var kembalian = $('#setBayar').val() - $('#hargacng').val();
+            var kembalian = $('#setBayar').val() - $('#setTotal').val();
 
             $('#setKembalian').val(kembalian);
 
             var a = $('#newkdiuran').val();
             var b = $('#tglsuud').val();
             var c = $('#hargacng').val();
+            var d = $('#newkdmember').val();
+            var g = $('#paketcangg').val();
+
+            // alert(g);
 
             $.ajax({
                 type    : 'post',
-                url     : '<?php echo site_url()?>/iuran/update_simpan',
+                url     : '<?php echo site_url()?>iuran/input_pay',
                 data    : {
-                  kd_iuran : a, tgl_akhir : b, harga : c
+                  kd_iuran    : a, 
+                  tgl_akhir   : b, 
+                  harga_paket : c, 
+                  kode        : d, 
+                  paket       : g
                 },
                 success : function(data) {
                   
                   Swal.fire({
-                    text: "Masa Aktif Member Berhasil Di Update",
+                    text: "Member membeli paket",
                     type: 'success',
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
@@ -239,5 +279,7 @@ desired effect
       });
     });
 </script>
+
+
 
 <?php $this->load->view('footer');?>

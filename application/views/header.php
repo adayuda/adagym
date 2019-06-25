@@ -39,7 +39,7 @@
                     <i class="fa fa-bars"></i>
                 </button> -->
                 <a class="navbar-brand" href="./"><img src="assets/ada.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="assets/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="../assets/logo2.png" alt="Logo"></a>
             </div>
 
             <?php $this->load->view('menu');?><!-- /.navbar-collapse -->
@@ -49,7 +49,6 @@
     <!-- Left Panel -->
 
     <!-- Right Panel -->
-
     <div id="right-panel" class="right-panel">
 
         <!-- Header-->
@@ -82,11 +81,10 @@
                             <a class="nav-link" href="<?php echo base_url('login/logout')?>"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
-
-                   
                 </div>
+                
             </div>
 
-        </header><!-- /header -->
-        <!-- Header-->
-
+        </header>
+    <!-- /header -->
+    <!-- Header-->

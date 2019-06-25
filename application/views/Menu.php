@@ -34,7 +34,7 @@
                     <li>
                         <a href="<?php echo base_url('page/data_paket')?>"><i class="menu-icon fa fa-table"></i>Data Package</a>
                     </li>
-
+ 
                     <h3 class="menu-title">Penjualan GYM</h3> <!-- /.menu-title-->
 
                      <li>
@@ -45,14 +45,14 @@
                         <a href="<?php echo base_url('page/data_barang')?>"><i class="menu-icon fa fa-table"></i>Data Barang</a>
                     </li>
 
-                     <li>
+                     <!-- <li>
                         <a href="<?php echo base_url('penjualan/detail_transaksi')?>"><i class="menu-icon fa fa-table"></i>Data Transaksi</a>
-                    </li>
+                    </li> -->
                     
                     <h3 class="menu-title">Laporan</h3> <!-- /.menu-title-->
 
                     <li>
-                        <a href="<?php echo base_url('penjualan/detail_transaksi')?>"><i class="menu-icon fa fa-table"></i> Laporan Iuran</a>
+                        <a href="<?php echo base_url('page/lap_iuran')?>"><i class="menu-icon fa fa-table"></i> Laporan Iuran</a>
                     </li>
 
                     <li>

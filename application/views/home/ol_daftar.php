@@ -19,7 +19,7 @@ foreach ($gym as $g) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Piccolo Theme</title>
+<title>adaGYM</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- CSS
@@ -96,7 +96,7 @@ $(document).ready(function () {
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="index.htm"><img src="img/piccolo-logo.png" alt="" /></a>
+        	<a href="index.htm"><img src="../../adagym.com/assets/adah.png" alt="" /></a>
             <h5>Big Things... Small Packages</h5>
         </div>
         
@@ -151,7 +151,7 @@ $(document).ready(function () {
 
             <!-- Mobile Nav
             ================================================== -->
-            <form action="#" id="mobile-nav" class="visible-phone">
+            <!-- <form action="#" id="mobile-nav" class="visible-phone">
                 <div class="mobile-nav-select">
                 <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
                     <option value="">Navigate...</option>
@@ -180,7 +180,7 @@ $(document).ready(function () {
                     <option value="page-contact.htm">Contact</option>
                 </select>
                 </div>
-                </form>
+                </form> -->
 
         </div>
         
@@ -193,11 +193,11 @@ $(document).ready(function () {
         <div class="span8">
             <div class="flexslider">
               <ul class="slides">
-                <li><a href="gallery-single.htm"><img src="img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="img/gallery/slider-img-1.jpg" alt="slider" /></a></li>
+                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
+                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
+                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
+                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
+                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
               </ul>
             </div>
         </div>
@@ -238,7 +238,7 @@ $(document).ready(function () {
                                 <a href="<?php echo base_url('home/detail');?>" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="gallery-single.htm"><img src="img/gallery/gallery-img-1-4col.jpg" alt="Gallery"></a>
+                        <a href="gallery-single.htm"><img src="../../adagym.com/assets/gambar.jpg" alt="Gallery"></a>
                         <span class="project-details"><a href="gallery-single.htm"><?php echo $g->nama ;?></a>For an international ad campaign.</span>
                     </li>
                     <?php
@@ -277,74 +277,25 @@ $(document).ready(function () {
     <!-- Footer Area
         ================================================== -->
 
-	<div class="footer-container"><!-- Begin Footer -->
+    <div class="footer-container"><!-- Begin Footer -->
+    <div class="color-bar-2 color-bg"></div>
     	<div class="container">
         	<div class="row footer-row">
-                <div class="span3 footer-col">
-                    <h5>About Us</h5>
-                   <img src="img/piccolo-footer-logo.png" alt="Piccolo" /><br /><br />
-                    <address>
-                        <strong>Design Team</strong><br />
-                        123 Main St, Suite 500<br />
-                        New York, NY 12345<br />
-                    </address>
-                    <ul class="social-icons">
-                        <li><a href="#" class="social-icon facebook"></a></li>
-                        <li><a href="#" class="social-icon twitter"></a></li>
-                        <li><a href="#" class="social-icon dribble"></a></li>
-                        <li><a href="#" class="social-icon rss"></a></li>
-                        <li><a href="#" class="social-icon forrst"></a></li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Latest Tweets</h5>
-                    <ul>
-                        <li><a href="#">@room122</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><a href="#">@room122</a> In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices.</li>
-                        <li><a href="#">@room122</a> Vivamus nec lectus sed orci molestie molestie. Etiam mattis neque eu orci rutrum aliquam.</li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Latest Posts</h5>
-                     <ul class="post-list">
-                        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li><a href="#">Consectetur adipiscing elit est lacus gravida</a></li>
-                        <li><a href="#">Lectus sed orci molestie molestie etiam</a></li>
-                        <li><a href="#">Mattis consectetur adipiscing elit est lacus</a></li>
-                        <li><a href="#">Cras rutrum, massa non blandit convallis est</a></li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Flickr Photos</h5>
-                    <ul class="img-feed">
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row"><!-- Begin Sub Footer -->
+            <div class="row" style="margin-left:4px"><!-- Begin Sub Footer -->
                 <div class="span12 footer-col footer-sub">
                     <div class="row no-margin">
-                        <div class="span6"><span class="left">Copyright 2012 Piccolo Theme. All rights reserved.</span></div>
+                        <div class="span6"><span class="left">Copyright 2019 adaGYM... All rights reserved.</span></div>
                         <div class="span6">
                             <span class="right">
-                            <a href="#">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Gallery</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>
+                            <a href="#">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a>ada GYM</a>
                             </span>
                         </div>
                     </div>
                 </div>
             </div><!-- End Sub Footer -->
+            </div>
+
+           
 
         </div>
     </div><!-- End Footer --> 
@@ -354,3 +305,5 @@ $(document).ready(function () {
     
 </body>
 </html>
+
+

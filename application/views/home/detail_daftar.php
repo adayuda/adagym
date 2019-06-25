@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Piccolo Theme</title>
+<title>adaGYM</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- CSS
@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="<?php echo base_url('assets/home/css/prettyPhoto.css');?>" />
 <link rel="stylesheet" href="<?php echo base_url('assets/home/css/flexslider.css');?>" />
 <link rel="stylesheet" href="<?php echo base_url('assets/home/css/custom-styles.css');?>">
-<link rel="stylesheet" href="<?php echo base_url('assets//jquery.steps/css/jquery.steps.css');?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/jquery.steps/css/jquery.steps.css');?>">
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/home/css/style-ie.css');?>"/>
@@ -31,6 +31,7 @@
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script src="<?php echo base_url('assets/home/js/bootstrap.js');?>"></script>
 <script src="<?php echo base_url('assets/jquery.steps/js/jquery.steps.js');?>"></script>
+<script src="<?php echo base_url('assets/parsley.js');?>"></script>
 <script src="<?php echo base_url('assets/home/js/jquery.prettyPhoto.js');?>"></script>
 <script src="<?php echo base_url('assets/home/js/jquery.flexslider.js');?>"></script>
 <script src="<?php echo base_url('assets/home/js/jquery.custom.js');?>"></script>
@@ -47,93 +48,13 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="index.htm"><img src="img/piccolo-logo.png" alt="" /></a>
+        	<a href="index.htm"><img src="../../adagym.com/assets/adah.png" alt="" /></a>
             <h5>Big Things... Small Packages</h5>
         </div>
         
         <!-- Main Navigation
         ================================================== -->
-        <div class="span7 navigation">
-            <div class="navbar hidden-phone">
-            
-            <ul class="nav">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">Home <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.htm">Full Page</a></li>
-                    <li><a href="index-gallery.htm">Gallery Only</a></li>
-                    <li><a href="index-slider.htm">Slider Only</a></li>
-                </ul>
-            </li>
-           <li><a href="features.htm">Features</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="page-full-width.htm">Full Width</a></li>
-                    <li><a href="page-right-sidebar.htm">Right Sidebar</a></li>
-                    <li><a href="page-left-sidebar.htm">Left Sidebar</a></li>
-                    <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
-                </ul>
-            </li>
-             <li class="dropdown active">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
-                    <li><a href="gallery-4col.htm">Gallery 4 Column</a></li>
-                    <li><a href="gallery-6col.htm">Gallery 6 Column</a></li>
-                    <li><a href="gallery-4col-circle.htm">Gallery 4 Round</a></li>
-                    <li><a href="gallery-single.htm">Gallery Single</a></li>
-                </ul>
-             </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="blog-style1.htm">Blog <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="blog-style1.htm">Blog Style 1</a></li>
-                    <li><a href="blog-style2.htm">Blog Style 2</a></li>
-                    <li><a href="blog-style3.htm">Blog Style 3</a></li>
-                    <li><a href="blog-style4.htm">Blog Style 4</a></li>
-                    <li><a href="blog-single.htm">Blog Single</a></li>
-                </ul>
-             </li>
-             <li><a href="page-contact.htm">Contact</a></li>
-            </ul>
-           
-            </div>
-
-            <!-- Mobile Nav
-            ================================================== -->
-            <form action="#" id="mobile-nav" class="visible-phone">
-                <div class="mobile-nav-select">
-                <select onchange="window.open(this.options[this.selectedIndex].value,'_top')">
-                    <option value="">Navigate...</option>
-                    <option value="index.htm">Home</option>
-                        <option value="index.htm">- Full Page</option>
-                        <option value="index-gallery.htm">- Gallery Only</option>
-                        <option value="index-slider.htm">- Slider Only</option>
-                    <option value="features.htm">Features</option>
-                    <option value="page-full-width.htm">Pages</option>
-                        <option value="page-full-width.htm">- Full Width</option>
-                        <option value="page-right-sidebar.htm">- Right Sidebar</option>
-                        <option value="page-left-sidebar.htm">- Left Sidebar</option>
-                        <option value="page-double-sidebar.htm">- Double Sidebar</option>
-                    <option value="gallery-4col.htm">Gallery</option>
-                        <option value="gallery-3col.htm">- 3 Column</option>
-                        <option value="gallery-4col.htm">- 4 Column</option>
-                        <option value="gallery-6col.htm">- 6 Column</option>
-                        <option value="gallery-4col-circle.htm">- Gallery 4 Col Round</option>
-                        <option value="gallery-single.htm">- Gallery Single</option>
-                    <option value="blog-style1.htm">Blog</option>
-                        <option value="blog-style1.htm">- Blog Style 1</option>
-                        <option value="blog-style2.htm">- Blog Style 2</option>
-                        <option value="blog-style3.htm">- Blog Style 3</option>
-                        <option value="blog-style4.htm">- Blog Style 4</option>
-                        <option value="blog-single.htm">- Blog Single</option>
-                    <option value="page-contact.htm">Contact</option>
-                </select>
-                </div>
-                </form>
-            
-        </div>
+        <!--  -->
 
       </div><!-- End Header -->
      
@@ -147,7 +68,7 @@
 
             <div class="row">
                 <div class="span6">
-                    <img src="img/gallery/gallery-img-1-full.jpg" class="align-left thumbnail" alt="image">
+                    <img src="../../adagym.com/assets/galery.png" class="align-left thumbnail" alt="image">
                 </div>
                 <div class="span6">
                     <h2>Custom Illustration</h2>
@@ -155,15 +76,15 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
 
                     <ul class="project-info">
-                        <li><h6>Date:</h6> 09/12/15</li>
-                        <li><h6>Client:</h6> John Doe, Inc.</li>
-                        <li><h6>Services:</h6> Design, Illustration</li>
-                        <li><h6>Art Director:</h6> Jane Doe</li>
-                        <li><h6>Designer:</h6> Jimmy Doe</li>
+                        <li><h6>Nama GYM :</h6> 09/12/15</li>
+                        <li><h6>Alamat   :</h6> John Doe, Inc.</li>
+                        <li><h6>No Telp  :</h6> Design, Illustration</li>
+                        <li><h6>Email    :</h6> Jane Doe</li>
+                        <!-- <li><h6>Designer:</h6> Jimmy Doe</li> -->
                     </ul>
 
-                    <button class="btn btn-inverse pull-left" DATA id="klik" type="button">Visit Website</button>
-                    <a href="#" class="pull-right"><i class="icon-arrow-left"></i>Back to Gallery</a>
+                    <button class="btn btn-inverse pull-left" DATA id="klik" type="button">Daftar Sekarang...</button>
+                    <a href="<?php echo base_url('home');?>" class="pull-right"><i class="icon-arrow-left"></i>Back to All Gym</a>
                 </div>
             </div>
 
@@ -175,63 +96,7 @@
 
     <!-- Footer Area
         ================================================== -->
-	<div class="footer-container"><!-- Begin Footer -->
-    	<div class="container">
-        	<div class="row footer-row">
-                <div class="span3 footer-col">
-                    <h5>About Us</h5>
-                   <img src="img/piccolo-footer-logo.png" alt="Piccolo" /><br /><br />
-                    <address>
-                        <strong>Design Team</strong><br />
-                        123 Main St, Suite 500<br />
-                        New York, NY 12345<br />
-                    </address>
-                    <ul class="social-icons">
-                        <li><a href="#" class="social-icon facebook"></a></li>
-                        <li><a href="#" class="social-icon twitter"></a></li>
-                        <li><a href="#" class="social-icon dribble"></a></li>
-                        <li><a href="#" class="social-icon rss"></a></li>
-                        <li><a href="#" class="social-icon forrst"></a></li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Latest Tweets</h5>
-                    <ul>
-                        <li><a href="#">@room122</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li><a href="#">@room122</a> In interdum felis fermentum ipsum molestie sed porttitor ligula rutrum. Morbi blandit ultricies ultrices.</li>
-                        <li><a href="#">@room122</a> Vivamus nec lectus sed orci molestie molestie. Etiam mattis neque eu orci rutrum aliquam.</li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Latest Posts</h5>
-                     <ul class="post-list">
-                        <li><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li><a href="#">Consectetur adipiscing elit est lacus gravida</a></li>
-                        <li><a href="#">Lectus sed orci molestie molestie etiam</a></li>
-                        <li><a href="#">Mattis consectetur adipiscing elit est lacus</a></li>
-                        <li><a href="#">Cras rutrum, massa non blandit convallis est</a></li>
-                    </ul>
-                </div>
-                <div class="span3 footer-col">
-                    <h5>Flickr Photos</h5>
-                    <ul class="img-feed">
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                        <li><a href="#"><img src="img/gallery/flickr-img-1.jpg" alt="Image Feed"></a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- wizard daftar -->
+	
             
 
             <!-- modal -->
@@ -250,36 +115,34 @@
                                 <h3>Data Diri </h3>
                                 <section>
                                     <label for="name-2"> Name *</label>
-                                    <input id="nama" name="nama" type="text" class="required">
+                                    <input id="txtNama" name="nama" type="text" class="required">
                                     <label for="age-2"> Umur *</label>
-                                    <input id="umur" name="umur"type="text">
+                                    <input id="txtUmur" name="umur"type="text">
                                     <div class="form-group">
                                     <label for="name -2">Jenis Kelamin *</label>
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="jk" id="optionsRadios1" value="Laki-Laki" checked="">
+                                            <input type="radio" name="jk" id="txtJk" value="Laki-Laki" checked="">
                                             Laki-Laki
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="jk" id="optionsRadios2" value="Perempuan">
+                                            <input type="radio" name="jk" id="txtJk" value="Perempuan">
                                             Perempuan
                                             </label>
                                         </div>
                                         </div>
-                                    <label for="">No Telp *</label>
-                                    <input id="tlp" name="tlp" type="number" class="required">
+                                    <label for="address-2">No Telp *</label>
+                                    <input id="txtTelp" name="tlp" type="number" class="required">
                                     <label for="address-2">Alamat *</label>
-                                    <input type="text" name="alamat" id="alamat" class="required">
+                                    <input type="text" name="alamat" id="txtAlamat" class="required">
                                     <label for="email-2">Email *</label>
-                                    <input id="email" name="email" type="text" class="required email">
+                                    <input id="txtEmail" name="email" type="text" class="required email">
                                 </section>
                                 <h3>Data Daftar</h3>
                                 <section>
                                     <label for="name-2">Nama GYM</label>
-                                    <input type="text">
-                                    <label for="name-2">Tanggal Daftar</label>
                                     <input type="text">
                                     <label for="name-2">Harga Daftar </label>
                                     <input type="text" name="" id="">
@@ -301,22 +164,23 @@
 
             </div>
             <!-- endmodal -->
-            <div class="row"><!-- Begin Sub Footer -->
+            <div class="footer-container"><!-- Begin Footer -->
+    <div class="color-bar-2 color-bg"></div>
+    	<div class="container">
+        	<div class="row footer-row">
+            <div class="row" style="margin-left:4px"><!-- Begin Sub Footer -->
                 <div class="span12 footer-col footer-sub">
                     <div class="row no-margin">
-                        <div class="span6"><span class="left">Copyright 2012 Piccolo Theme. All rights reserved.</span></div>
+                        <div class="span6"><span class="left">Copyright 2019 adaGYM... All rights reserved.</span></div>
                         <div class="span6">
                             <span class="right">
-                            <a href="#">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Gallery</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#">Contact</a>
+                            <a href="#">Home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a>ada GYM</a>
                             </span>
                         </div>
                     </div>
                 </div>
             </div><!-- End Sub Footer -->
-
-        </div>
-    </div><!-- End Footer -->
-
+            </div>
     <!-- Scroll to Top -->  
     <div id="toTop" class="hidden-phone hidden-tablet">Back to Top</div>
     
@@ -328,16 +192,56 @@
            $("#klik").click(function () { 
             console.log("a");
             $("#modal-pesan").modal("show");
+            //     $.ajax({
+            //         type    : 'ajax',
+            //         method  : 'POST',
+            //         url     : 'gym/showData',
+            //         data    : {kd_gym=kd_gym},
+            //         success:function(data){
+
+            //         }
+            //     });
            });
 
            $("#wizardx").steps({
+               
                headerTag: "h3",
                bodyTag: "section",
                autoFocus: true,
-               transitionEffect:"slideLeft",
-              
-           });
+               transitionEffect:"slideLeft"
+            //    onStepChanging: function(event, indexsekarang, maxindex){
+            //        if(indexsekarang<maxindex){
+            //            if(indexsekarang===0){
+            //                var nama     =  $('input[id=txtNama]').parsley();
+            //                var umur     =  $('input[id=txtUmur]').parsley();
+            //                var jk       =  $('input[id=txtJk]').parsley();
+            //                var telp     =  $('input[id=txtTelp]').parsley();
+            //                var alamat   =  $('input[id=txtAlamat]').parsley();
+            //                var email    =  $('input[id=txtEmail]').parsley();
 
+            //                 if(nama.isValid() &&
+            //                    umur.isValid() &&
+            //                    jk.isValid() &&
+            //                    telp.isValid() &&
+            //                    alamat.isValid() &&
+            //                    email.isValid()){
+            //                        return true;
+            //                    }else{
+            //                        nama.validate();
+            //                        umur.validate();
+            //                        jk.validate();
+            //                        telp.validate();
+            //                        alamat.validate();
+            //                        email.validate();
+            //                    }
+            //            }
+            //            if(indexsekarang===1){
+
+
+            //            }
+            //        }
+            //    }
+           });
         });
     
         

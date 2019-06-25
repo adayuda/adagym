@@ -80,6 +80,15 @@
 	      echo "Anda tidak berhak mengakses halaman ini";
 	    }
 	  }
+
+	  function lap_iuran(){
+		if($this->session->userdata('akses')=='2'){
+			redirect('iuran/laporan');
+		   }else{		
+			 echo "Anda tidak berhak mengakses halaman ini";
+		   } 
+	  }
+
 	}
 
 	

@@ -1,4 +1,22 @@
 <?php $this->load->view('header');?>
+<div class="breadcrumbs" style="margin-top:5px">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                    <h1>Data Penjualan</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right"> 
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Data Penjualan</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
@@ -50,15 +68,16 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <strong class="card-title">Detail Data Transaksi</strong>   
+                        <!-- <strong class="card-title">Detail Data Transaksi</strong>    -->
                     </div>
                     <div class="card-body">
                         <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                             <thead>
 
                                 <tr>
-                                    <td>N0</td>
-                                    <td>Tangga Transaksi</td>
+                                    <td>No</td>
+                                    <td>Tanggal Transaksi</td>
+                                    <!-- <td>Total Transaksi</td> -->
                                     <td>Detail</td>
                                 </tr>
                             </thead>

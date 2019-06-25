@@ -28,41 +28,54 @@
 			$gym = $this->session->userdata('ses_id');
 			echo json_encode($this->p->showAllBarang($gym));
 		}
-
+ 
 		public function editBarang() {
 			$gym 	= $this->session->userdata('ses_id');
 			$kd 	= $this->input->post('kd_barang');
 			echo json_encode($this->p->getperbarang($gym, $kd));
 		}
 
-		public function qupdateBarang() {
-			$this->p->updateBarang();
+		public function qupdateBarang() { 
+			echo json_encode($this->p->updateBarang());
 		}
 
 		public function addbarang() {
-			$gym 	= $this->session->userdata('ses_id');
+			try{
+				$gym 	= $this->session->userdata('ses_id');
 
-			$kd 	= $this->input->post('kode');
-			$nama 	= $this->input->post('nama');
-			$harga 	= $this->input->post('harga');
-			$stok 	= $this->input->post('stok');
+				$kd 	= $this->input->post('kode'); 
+				$nama	= $this->input->post('nama_barang');
+				$harga 	= $this->input->post('harga');
+				$stok 	= $this->input->post('stok');
 
-			$cek_barang = $this->p->cekdatabarang($kd);
+				$cek_barang = $this->p->cekdatabarang($kd);
 
-			if ($cek_barang == 0) {
-				$this->p->addTblBarang($kd, $nama);
+				if ($cek_barang == 0) {
+					$this->p->addTblBarang($kd, $nama); 
+				}
+			
+				$this->p->addTblBarangGym($kd, $gym, $harga, $stok);
+
+				//redirect(site_url('barang'));
+				echo json_encode(array(
+					"error" => false,
+					"message" => "Barang berhasil ditambahkan!"
+				));
+			}catch(Exception $e){
+				echo json_encode(array(
+					"error" => true,
+					"message" => "Barang gagal ditambahkan!"
+				));
 			}
-		
-			$this->p->addTblBarangGym($kd, $gym, $harga, $stok);
-
-			redirect(site_url('barang'));
 		}
 
 		public function deleteBarang() {
-			$kd_paket=$this->uri->segment(3);
- 			$this->db->where('kd_paket',$kd_paket);
- 			$this->db->delete('tbl_paket');
- 			redirect('paket');
+			// $id=$this->uri->segment(3);
+ 			// $this->db->where('kd_barang',$kd_barang);
+ 			// $this->db->delete('tbl_barang_gym');
+			 // redirect('');
+			echo json_encode($this->p->deleteBarang());
 		}
+		
  	}
 ?>

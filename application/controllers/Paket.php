@@ -20,37 +20,54 @@
 			print_r('error');
 			}	
 		}
+		function showAllPaket(){
+			$gym = $this->session->userdata('ses_id');
+			echo json_encode($this->p->showAllPaket($gym));
+		}
 
 		function input(){
 			$this->load->view('paket/paket_input');
 		}
 
-		function input_simpan(){
+		function addPaket(){
+		try{	
 			$gym = $this->session->userdata('ses_id');
-			$tambah_paket = array(
-							'kd_paket' 	=>NULL,
-							'kd_gym	' 	=> $gym,
-							'nama' 		=> $this->input->post('nama'),
-							'harga'		=> $this->input->post('harga'),
-							'lama'		=> $this->input->post('lama')
-							);
-			$this->db->insert('tbl_paket',$tambah_paket);
-			redirect('paket');
+			
+			$kd_paket 	= NULL;				
+			$gym 		= $this->session->userdata('ses_id');
+			$nama		= $this->input->post('nama');
+			$harga		= $this->input->post('harga');
+			$lama		= $this->input->post('lama');
+		
+			$this->p->addTblPaket($kd_paket, $gym, $nama, $harga, $lama);				
+			//$this->db->insert('tbl_paket',$tambah_paket);
+			echo json_encode(array(
+				"error" => false,
+				"message" => "Package berhasil ditambahkan!"
+			)); 
+		}catch(Exception $e){
+			echo json_encode(array(
+				"error" => true,
+				"message" => "Package gagal ditambahkan!"
+			));
 		}
-		function edit(){
-		$kd_paket=$this->uri->segment(3);
- 		$data['get_data'] =  $this->p->get_data($kd_paket);
- 		$this->load->view('paket/paket_edit',$data);
- 		}
+		}
+		function editPaket(){
+			$gym 	= $this->session->userdata('ses_id');
+			$kd 	=$this->input->post('kd_paket');
+			//$data['get_data'] =  $this->p->get_data($kd_paket);
+			echo json_encode($this->p->get_data($kd));
+		}
+		
 
  		function edit_simpan(){
  			$kd_paket 	= $this->input->post('kd_paket');
-	 		$nama 	= $this->input->post('nama');
+	 		$nama 	= $this->input->post('nama_paket');
 	 		$harga = $this->input->post('harga');
 	 		$lama	= $this->input->post('lama');
 	 		
 	 		$data 	= array(
-	 				'nama'			=> $nama,
+	 				'nama_paket'	=> $nama,
 	 				'harga'		=> $harga,
 	 				'lama'			=> $lama
 	 				
@@ -58,14 +75,13 @@
 	 		$this->db->where('kd_paket',$kd_paket);
 	 		$this->db->update('tbl_paket', $data);
 			redirect('paket');
+		 }
+		function updatePaket(){
+			echo json_encode($this->p->updatePaket());
+		}
+ 		function deletePaket(){
+			echo json_encode($this->p->deletePaket());
  		}
-
- 		function delete(){
- 		$kd_paket=$this->uri->segment(3);
- 		$this->db->where('kd_paket',$kd_paket);
- 		$this->db->delete('tbl_paket');
- 		redirect('paket');
- 	}
 
  	
 	}
