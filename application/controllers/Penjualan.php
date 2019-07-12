@@ -101,7 +101,7 @@ class Penjualan extends CI_Controller {
   }
 
   public function load_cart() {
-    echo $this->show_cart();
+    echo $this->show_cart(); 
   }
 
   public function des_cart() {

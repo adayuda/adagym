@@ -48,7 +48,7 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="index.htm"><img src="../../adagym.com/assets/adah.png" alt="" /></a>
+        	<a href="index.htm"><img src="../../assets/adah.png" alt="" /></a>
             <h5>Big Things... Small Packages</h5>
         </div>
         
@@ -68,18 +68,18 @@
 
             <div class="row">
                 <div class="span6">
-                    <img src="../../adagym.com/assets/galery.png" class="align-left thumbnail" alt="image">
+                    <img src="../../assets/galery.png" class="align-left thumbnail" alt="image">
                 </div>
                 <div class="span6">
-                    <h2>Custom Illustration</h2>
-                    <p class="lead">For an international ad campaign. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus fermentum ipsum molestie. Vivamus tincidunt sem eu magna varius elementum. Maecenas felis tellus, fermentum vitae laoreet vitae, volutpat et urna. Nulla faucibus ligula eget ante varius ac euismod odio placerat. Nam sit amet felis non lorem faucibus rhoncus vitae id dui.</p>
+                    <h2><?=  $gym->nama; ?></h2>
+                    <!-- <p class="lead">For an international ad campaign. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus</p> -->
+                    <p><?=  $gym->deskripsi; ?></p>
 
                     <ul class="project-info">
-                        <li><h6>Nama GYM :</h6> 09/12/15</li>
-                        <li><h6>Alamat   :</h6> John Doe, Inc.</li>
-                        <li><h6>No Telp  :</h6> Design, Illustration</li>
-                        <li><h6>Email    :</h6> Jane Doe</li>
+                        <li><h6>Nama GYM :</h6> <?=  $gym->nama; ?> </li>
+                        <li><h6>Alamat   :</h6> <?=  $gym->alamat; ?></li>
+                        <li><h6>No Telp  :</h6> <?=  $gym->no_telp; ?></li>
+                        <li><h6>Email    :</h6> <?=  $gym->email; ?></li>
                         <!-- <li><h6>Designer:</h6> Jimmy Doe</li> -->
                     </ul>
 
@@ -104,7 +104,7 @@
             <!-- Modal -->
             <div style="display: none" class="modal" id="modal-pesan" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
+                    <div class="modal-content modal-sm" >
                         <div class="modal-header">
                             <h3 class="modal-title">
                                 Daftar GYM
@@ -112,51 +112,94 @@
                         </div>
                         <div class="modal-body">
                             <div class="container" id="wizardx">
+                                
+                                
                                 <h3>Data Diri </h3>
                                 <section>
                                     <label for="name-2"> Name *</label>
-                                    <input id="txtNama" name="nama" type="text" class="required">
+                                    <input id="txtNama" name="txtNama" type="text" class="required">
                                     <label for="age-2"> Umur *</label>
-                                    <input id="txtUmur" name="umur"type="text">
-                                    <div class="form-group">
+                                    <input id="txtUmur" name="txtUmur"type="text">
+                                    <!-- <div class="form-group"> -->
                                     <label for="name -2">Jenis Kelamin *</label>
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="jk" id="txtJk" value="Laki-Laki" checked="">
+                                            <input type="radio" name="txtJk" id="txtJk" value="Laki-Laki" checked="">
                                             Laki-Laki
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                            <input type="radio" name="jk" id="txtJk" value="Perempuan">
+                                            <input type="radio" name="txtJk" id="txtJk" value="Perempuan">
                                             Perempuan
                                             </label>
                                         </div>
-                                        </div>
-                                    <label for="address-2">No Telp *</label>
-                                    <input id="txtTelp" name="tlp" type="number" class="required">
-                                    <label for="address-2">Alamat *</label>
-                                    <input type="text" name="alamat" id="txtAlamat" class="required">
-                                    <label for="email-2">Email *</label>
-                                    <input id="txtEmail" name="email" type="text" class="required email">
+                                    <!-- </div> -->
+
+
+                                <!-- </section>
+                                <h3>Data Contact </h3>
+                                <section> -->
+                                    <div class="form-group" > 
+                                        <label for="address-2">No Telp *</label>
+                                        <input id="txtTelp" name="tlp" type="number" class="required">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label for="address-2">Alamat *</label>
+                                        <input type="text" name="alamat" id="txtAlamat" class="required">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label for="email-2">Email * <small style="text-collor:red">Silahkan masukan email yang benar!!!</small></label>
+                                        <input id="txtEmail" name="email" type="text" class="required email">
+                                        
+                                    </div>
+
                                 </section>
                                 <h3>Data Daftar</h3>
                                 <section>
                                     <label for="name-2">Nama GYM</label>
-                                    <input type="text">
-                                    <label for="name-2">Harga Daftar </label>
-                                    <input type="text" name="" id="">
+                                    <input type="text" name="namaGym" id="namaGym" value="<?=  $gym->nama;  ?>">
                                     <label for="name-2">Pilih Package</label>
-                                    <input type="text">
-                                    <label for="name-2">Harga Package</label>
-                                    <input type="text">
-                                    <label for="name-2">Sub Total</label>
-                                    <input type="text">
-                                </section>
-                                <h3>Transaksi</h3>
-                                <section>
+                                    <div class="form-group" > 
+                                        <select id="paketcangg" data-placeholder="Pilih Package..." ul class="chosen-choices  " tabindex="1" name="paket" >
+                                                <option value="0">pilih package</option>
+                                                <?php 
+                                                    foreach($paket as $p){
+                                                        echo " <option value=". $p->kd_paket.">".$p->nama_paket."</option>";	
+                                                    }
+                                                ?>
+                                            
+                                                
+                                        </select>
+                                    </div>
+                                    <!-- <div class="form-group" >
+                                        <label for="email-2">Harga </label>
+                                        <input id="hargacng" name="hargacng" type="text" class="required" > 
+                                    </div> -->
+                                    <table class="table table-bordered">
+                                <thead>
+                                <tr>
                                     
+                                   
+                                      <tr>  
+                                    <th>Harga Paket</th>
+                                    <td><input id="hargacng" type="text" name="harhacng" class="form-control input-bg" ></td>
+                                    </tr>   	
+                                      <tr>  
+                                    <th>Harga Daftar</th>
+                                    <td><input id="hdaftar" type="text" name="hdaftar" class="form-control input-bg" value=<?=  $gym->harga_daftar;  ?>></td>
+                                    </tr>   	
+                                      <tr>  
+                                    <th>Total</th>
+                                    <td><input id="setTotal" type="number" name="setTotal" class="form-control input-bg"></td>
+                                </tr>
+                                </thead>
+                               
+                                </table>
+                                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">Silahkan Cek Email Dan Lakukan Pebayaran.</label>
                                 </section>
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -188,61 +231,137 @@
 </html>
 
 <script>
-      $(document).ready(function() {
-           $("#klik").click(function () { 
-            console.log("a");
-            $("#modal-pesan").modal("show");
-            //     $.ajax({
-            //         type    : 'ajax',
-            //         method  : 'POST',
-            //         url     : 'gym/showData',
-            //         data    : {kd_gym=kd_gym},
-            //         success:function(data){
 
-            //         }
-            //     });
+      $(document).ready(function(){
+           $("#klik").click(function(){ 
+            console.log("a");
+            var id = <?php echo $this->uri->segment(3)?>;
+            console.log(id);
+            $("#modal-pesan").modal("show");
+ 
+            $('#paketcangg').change(function() {
+                var kdpaket = $(this).val();
+                var id = <?php echo $this->uri->segment(3)?>;
+                console.log("databerubah");
+                $.ajax({
+                    url: '<?=base_url('gym/getData')?>',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {kdpkt: kdpaket,
+                            id : id},
+                    success:function(get){
+                       
+                        $("#hargacng").val(get[0].harga);
+                        var hargacng = parseInt($("#hargacng").val());
+                        var hargadaf = parseInt($("#hdaftar").val());
+                        var total = hargacng + hargadaf;
+                        console.log(hargacng);
+                        console.log(hargadaf);
+                        $("#setTotal").val(total);
+                        console.log(total);
+
+                    }
+                });
+                
+                });
            });
 
+        
+           var indexsekarang = 0;
            $("#wizardx").steps({
-               
                headerTag: "h3",
                bodyTag: "section",
                autoFocus: true,
-               transitionEffect:"slideLeft"
-            //    onStepChanging: function(event, indexsekarang, maxindex){
-            //        if(indexsekarang<maxindex){
-            //            if(indexsekarang===0){
-            //                var nama     =  $('input[id=txtNama]').parsley();
-            //                var umur     =  $('input[id=txtUmur]').parsley();
-            //                var jk       =  $('input[id=txtJk]').parsley();
-            //                var telp     =  $('input[id=txtTelp]').parsley();
-            //                var alamat   =  $('input[id=txtAlamat]').parsley();
-            //                var email    =  $('input[id=txtEmail]').parsley();
-
-            //                 if(nama.isValid() &&
-            //                    umur.isValid() &&
-            //                    jk.isValid() &&
-            //                    telp.isValid() &&
-            //                    alamat.isValid() &&
-            //                    email.isValid()){
-            //                        return true;
-            //                    }else{
-            //                        nama.validate();
-            //                        umur.validate();
-            //                        jk.validate();
-            //                        telp.validate();
-            //                        alamat.validate();
-            //                        email.validate();
-            //                    }
-            //            }
-            //            if(indexsekarang===1){
-
-
-            //            }
-            //        }
-            //    }
+               transitionEffect:"slideLeft",
+               onStepChanging: function(event, currentIndex, maxindex){   
+                   if(indexsekarang<maxindex){
+                        if(indexsekarang==0){                    
+                            var nama     =  $('#txtNama').parsley();
+                            var umur     =  $('#txtUmur').parsley();
+                            var jk       =  $('#txtJk').parsley();
+                            var tlp      =  $('#txtTelp').parsley();
+                            var alamat   =  $('#txtAlamat').parsley();
+                            var email    =  $('#txtEmail').parsley();
+                              if(nama.isValid() 
+                              & umur.isValid()
+                              & jk.isValid()
+                              & tlp.isValid() 
+                              & alamat.isValid()
+                              & email.isValid()){
+                                console.log('nyak');
+                                return true;
+                              }
+                              else{
+                                  nama.validate();
+                                  umur.validate();
+                                  jk.validate();
+                                  telp.validate();
+                                  alamat.validate();
+                                  email.validate();
+                                  console.log('singnyak');
+                                  return false;
+                              }
+                        }
+                   }else{
+                       console.log("kok mai");
+                       return true;
+                   }
+               },
+                onFinishing: function (event, currentIndex) { 
+                    var namagym = $('#namaGym').parsley();
+                    var paket   = $('#paketcangg').parsley();
+                    var harga   = $('#hargacng').parsley();
+                        if(namagym.isValid() 
+                        & paket.isValid()
+                        & harga.isValid()){
+                            console.log('nyak 2');                                    
+                            return true;
+                        }else{
+                            namagym.validate();
+                            paket.validate();
+                            harga.validate();
+                            return false;
+                        }
+                 }, 
+                onFinished: function () {
+                    console.log('mekere suud')
+                    var a = $('#txtNama').val();
+                    var b = $('#txtUmur').val();
+                    var c = $('#txtJk').val();
+                    var d = $('#txtTelp').val();
+                    var e = $('#txtAlamat').val();
+                    var f = $('#txtEmail').val();
+                    var g = <?php echo $this->uri->segment(3)?>;
+                    var h = $('#paketcangg').val();
+                    var i = $('#setTotal').val();
+                    var j = $('#hdaftar').val();
+                    var k = $('#hargacng').val();
+                    console.log(k);
+                    $.ajax({
+                        url:'<?=base_url('home/addData')?>',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {nama : a,
+                               umur : b,
+                               jk   : c,
+                               telp : d,
+                               ads  : e,
+                               mail : f,
+                               gym  : g,
+                               paket: h,
+                               total: i,
+                               hdaf : j,
+                               hpak : k},
+                        success:function(){
+                            console.log("success");
+                            
+                            $("#modal-pesan").modal("hide");
+                        }
+                        
+                    });
+                 }
            });
-        });
+        });     
     
         
 </script>

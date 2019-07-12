@@ -26,6 +26,7 @@ class M_penjualan extends CI_Model{
             );
             
             $this->db->insert('tbl_detail_transaksi', $newdata);
+            
         }
 
         return $insert_id;

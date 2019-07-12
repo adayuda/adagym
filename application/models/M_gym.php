@@ -17,11 +17,15 @@
  	function get_data($kd_gym){
  		$query = $this->db->get_where($this->newtabel,array('kd_gym'=>$kd_gym));
  		return $query->result_array();
-	 }
-	public function addTblGym() {
-			$kd_admin	= $this->session->userdata('ses_id');
- 			//$username 	= $this->input->post('email');
-			$password	= 'adagym123';
+	}
+	 function get_paket_id($gym, $paket) {
+		$query = $this->db->get_where('tbl_paket', array('kd_gym' => $gym, 'kd_paket' => $paket));
+		return $query->result();
+	}
+	public function addTblGym($nama, $alamat, $no_telp, $email) {
+		$kd_admin	= $this->session->userdata('ses_id');
+		//$username 	= $this->input->post('email');
+		$password	= 'adagym123';
 		$data = array(
 			'kd_gym' 		=> null,
 			'nama'			=> $nama,
@@ -33,7 +37,7 @@
 			'password'		=> $password
 		);
 
-		$query = $this->db->insert('tbl_paket', $data);
+		$this->db->insert('tbl_gym', $data);
 	}
 
  	function satu_gym(){
@@ -60,6 +64,15 @@
 		// }
 		return $query->result();
 	}
+	function showGambar($kd){
+		$query = $this->db->query('SELECT tbl_gym.gambar,
+										  tbl_gym.deskripsi
+									FROM tbl_gym
+									WHERE tbl_gym.kd_gym = '.$kd);
+		
+		return $query->result();
+	}
+
 	function updateGym($kd){
 		$id = $this->session->userdata('ses_id');
 		$field = array(
@@ -76,6 +89,31 @@
 		}else{ 
 			return array('error' => true, 'message' => "id:".$id.", error:".json_encode($field), 'data' => $this->input->post());
 		}
+	}  
+
+	function Getuser($where) {
+        $this->db->select('*');
+        $this->db->from('tbl_gym');
+        $this->db->where($where);
+        $data=$this->db->get();
+        return $data;
+    }
+	
+	function dataPaket($gym){
+ 		$paket = $this->db->query('SELECT tbl_paket.kd_paket,
+ 										  tbl_paket.nama_paket,
+ 										  tbl_paket.harga
+ 									FROM tbl_paket
+ 									WHERE tbl_paket.kd_gym = '.$gym
+ 											);
+ 		return $paket;
+	 }
+	 function dataGym($kd){
+		$gym = $this->db->query('SELECT * 
+									FROM tbl_gym
+									WHERE tbl_gym.kd_gym = '.$kd
+											);
+		return $gym;
 	}
  }
 ?>

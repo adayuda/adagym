@@ -78,5 +78,6 @@ class M_paket extends Ci_Model
 			return array('error' => true, 'message' => "id:".$id.", error:".json_encode($field), 'data' => $this->input->post());
 		}
 	}
+	
  }
 ?>

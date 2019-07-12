@@ -131,15 +131,18 @@
                         no_telp : no_telp,
                         email   : email
                         },
+                dataType : 'json',
                 success: function(data){
-                    // var a = JSON.parse(data);
+                   // var a = JSON.parse(data);
                     $('input[name=txtNama]').val("");
                     $('input[name=txtAlamat]').val("");
                     $('input[name=txtTelp]').val("");
                     $('input[name=txtEmail]').val("");
                     $('#addModal').modal('hide');
                     
-                    window.location = "<?=site_url('gym') ?>";
+                    setTimeout(function(){
+                        window.location = "gym";},2000);
+                    swal("Data GYM successfully","You clicked the button!","success");
                 },
                 error: function(data){
                     alert(data);

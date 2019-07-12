@@ -3,7 +3,7 @@
 	{
 		
 		function index(){
-			$this->load->view('v_login');
+			$this->load->view('v_login'); 
 		}
 
 		function aksi_login(){		
@@ -21,7 +21,7 @@
 		            $this->session->set_userdata('akses','1');
 		            $this->session->set_userdata('ses_id',$data['kd_admin']);
 		            $this->session->set_userdata('ses_nama',$data['nama']);
-		            redirect('page');	            	
+		            redirect('page/dashboard_admin');	            	
 		         
 
 	        }elseif ($cek_gym->num_rows() > 0) {

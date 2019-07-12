@@ -21,97 +21,36 @@
  			}
 				else{
 			print_r('error');
-		}
-	 	}
-
-	 	function input(){
-	 		$this->load->view('gym/gym_input');
+			}
 		 }
+		 function getData(){
+			$kd_gym 	= $this->input->post('id');
+			$kd_paket 	= $this->input->post('kdpkt');
+			echo json_encode($this->g->get_paket_id($kd_gym, $kd_paket));
+		 }
+
 		
 	 	 function addGym(){
 	 	 	try{	
 			 $nama 		= $this->input->post('nama');
-			 $alamat		= $this->input->post('alamat');
+			 $alamat	= $this->input->post('alamat');
  			 $no_telp	= $this->input->post('no_telp');
  			 $email		= $this->input->post('email');
  			
-				$this->g->addTblGym($nama, $no_telp, $alamat, $email);
+				$this->g->addTblGym($nama, $alamat, $no_telp, $email);
 				echo json_encode(array(
 					"error" => false,
-					"message" => "Package berhasil ditambahkan!"
+					"message" => "Gym berhasil ditambahkan!"
 				)); 
 			}catch(Exception $e){
 				echo json_encode(array(
 					"error" => true,
-					"message" => "Package gagal ditambahkan!"
+					"message" => "Gym gagal ditambahkan!"
 				));
 			}
 		}
 	 	 
-	 	
-	 	function edit(){
-	 		$this->load->model('m_gym');
-	 		$kd_gym = $this->session->userdata('ses_id');
-	 		$data['get_data'] =  $this->m_gym->get_data($kd_gym);
-	 		$this->load->view('gym/gym_edit',$data);
-	 	}
-
-
-	 	function edit_simpan(){
-	 	$id 	= $this->input->post('id');
- 		$nama 	= $this->input->post('nama');
- 		$alamat = $this->input->post('alamat');
- 		$email	= $this->input->post('email');
- 		$tlp 	= $this->input->post('tlp');
- 		
- 		$data 	= array(
- 				'nama'			=> $nama,
- 				'alamat'		=> $alamat,
- 				'email'			=> $email,
- 				'no_telp'		=> $tlp
- 				);
- 		$this->db->where('kd_gym',$id);
- 		$this->db->update('tbl_gym', $data);
-		redirect('page');
-	 	}
-
-	 	function delete(){
- 		$kd_gym=$this->uri->segment(3);
- 		$this->db->where('kd_gym',$kd_gym);
- 		$this->db->delete('tbl_gym');
- 		redirect('gym');
-		}
-		 
-		function image(){
-			$config['upload_path'] 		= 'images/';
-			$config['allowed_types']	= 'jpg|png';
-			$config['max_size']			= 3000;
-			$config['max_width']		= 1200;
-			$config['max_height']		= 760;
-
-			$this->load->library('upload',config);
-			if ( ! $this->upload->do_upload('gambar')) //sesuai dengan name pada form 
-            {
-                   echo 'anda gagal upload';
-            }
-            else
-            {
-            	//tampung data dari form
-            	$nama = $this->input->post('nama');
-            	$harga = $this->input->post('harga');
-            	$file = $this->upload->data();
-            	$gambar = $file['file_name'];
- 
-                $this->product_m->insert(array(
-			        'nama' => $nama,
-			        'harga' => $harga,
-			        'gambar' => $gambar
-				));
-				$this->session->set_flashdata('msg','data berhasil di upload');
-				redirect('gym');
- 
-            }
-		}
+		
 		function showData(){
 			$kd = $this->input->get('kd_gym');
 			echo json_encode($this->g->showData($kd));	
@@ -121,6 +60,23 @@
 			$kd = $this->input->get('kd_gym');
 			echo json_encode($this->g->updateGym($kd));
 		}
- }
+
+		function check_account(){
+
+			$old_password=md5($this->input->post('opassword'));
+			$kd_gym= $this->session->userdata('id');
+			$cek=$this->g->Getuser(array('password' => $old_password,'kd_gym'=>$kd_gym));
+			if($cek->num_rows()>=1){
+				echo json_encode(false);
+				// jika cek user bernilai lebih dari sama dengan 1 (ada data) maka kirimkan nilai false
+			} else{
+				echo json_encode(true);
+			}
+		}
+		function showGambar(){
+			$kd = $this->session->userdata('ses_id');
+			echo json_encode($this->g->showGambar($kd));	
+		}
+ } 
 
 ?>

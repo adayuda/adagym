@@ -85,7 +85,27 @@
 										ON tbl_iuran.kd_member = tbl_member.kd_member 
 										WHERE tbl_iuran.kd_member = '. $mem
 										);
-			return $member;
+			return $member; 
+		}
+
+		function addtblIuranDaf( $gym, $paket, $hpak, $status){
+			$newkode = $this->db->query("SELECT tbl_member.kd_member 
+			FROM tbl_member
+			ORDER BY tbl_member.kd_member 
+			DESC LIMIT 1 ")->result();
+			// print_r ($newkode);
+			// return ;
+			$data=array(
+				'kd_iuran' => NULL,
+				'kd_member'=> $newkode[0]->kd_member,
+				'kd_gym'   => $gym,
+				'kd_paket' => $paket,
+				'harga'	   => $hpak,
+				'tgl_bayar'=> NULL,
+				'tgl_akhir'=> NULL,
+				'status'   => $status
+			);
+			$this->db->insert('tbl_iuran',$data);
 		}
 		
 	}

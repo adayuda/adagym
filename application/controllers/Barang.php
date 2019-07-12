@@ -33,7 +33,7 @@
 			$gym 	= $this->session->userdata('ses_id');
 			$kd 	= $this->input->post('kd_barang');
 			echo json_encode($this->p->getperbarang($gym, $kd));
-		}
+		} 
 
 		public function qupdateBarang() { 
 			echo json_encode($this->p->updateBarang());
@@ -47,7 +47,7 @@
 				$nama	= $this->input->post('nama_barang');
 				$harga 	= $this->input->post('harga');
 				$stok 	= $this->input->post('stok');
-
+ 
 				$cek_barang = $this->p->cekdatabarang($kd);
 
 				if ($cek_barang == 0) {

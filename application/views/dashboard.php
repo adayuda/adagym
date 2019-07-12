@@ -79,7 +79,7 @@
 
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" id="btnEditPro" href="#" ><i class="fa fa-user"></i> My Profile</a>
-
+                            <a class="nav-link" id="btnEditPass" href="#" ><i class="fa fa-key"></i> Ganti Password</a>
                             <a class="nav-link" href="<?php echo base_url('login/logout')?>"><i class="fa fa-power-off"></i> Logout</a>
                         </div>
                     </div>
@@ -110,13 +110,13 @@
             </div>
         </div>
 
-        <div class="content mt-3">
+        <div class="content mt-3" style="margin-top:15px">
             <div class="col-sm-12">
                 <div class="alert  alert-success " style="margin-top:15px" role="alert">
-                    <span class="badge badge-pill badge-success">Success</span> login success... Welcome back <?php echo $this->session->userdata('akses');?>.
-                    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span class="badge badge-pill badge-success">Success</span> login success... Welcome back <?php echo $this->session->userdata('ses_nama');?>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
-                    </button> -->
+                    </button>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3">
@@ -227,14 +227,36 @@
                         <p class="text-light">Members online</p>
 
                         <div class="chart-wrapper px-3" style="height:70px;" height="70">
-                            <canvas id="widgetChart4"></canvas>
+                            <!-- <canvas id="widgetChart4"></canvas> -->
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        
 
+        <div class="card-body">
+            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                    
+                    <th>Gambar</th>
+                    <th>Descripsi</th>
+                    <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="showdata"></tbody>
+                <tfoot>
+                    <tr>
+                    
+                    <th>Gambar</th>
+                    <th>Descripsi</th>
+                    <th>Action</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        </div>
         
 
 
@@ -281,9 +303,115 @@
                     </div>
                 </div>
             </div>
+
+            <div id="passModal" class="modal fade"  tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                    <form id="passForm" action="" method="post" class="form-horizontal">
+                        <input type="hidden" name="txtId" value="0">
+                        <div class="form-group">
+                            <label for="name" class="label-control col-md-4">Password Lama *</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" id="old_password"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="label-control col-md-4">Password Baru *</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" id="new"></input>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="label-control col-md-4">Confirm Password *</label>
+                            <div class="col-md-8">
+                                <input type="password" class="form-control" id="confirm"></input>
+                            </div>
+                        </div>
+                            
+                    </form>
+                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button id = "btnSubmit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="upGambar" class="modal fade"  tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                    <form id="myForm" action="" method="post" class="form-horizontal">
+                        <input type="hidden" name="txtId" value="0">
+                        <div class="form-group">
+                            <label for="name" class="label-control col-md-4">Deskripsi</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" name="txtHarga"></input>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                            <label for="name" class="label-control col-md-4">Gambar</label>
+                            <div class="col-md-8">
+                            <input type="file" name="filefoto" class="dropify" data-height="300">
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button id = "btnSave" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
 $(function(){
             
+        $("#btnEditPass").click(function(){
+            $('#passModal').modal('show');
+            $('#passModal').find('.modal-title').text('Ganti Password');
+            //$('#myForm').attr('action', '<?php echo base_url() ?>gym/updatePass');
+
+            $('#old_password').change(function(){    
+                console.log(a);
+                var fopassword = $('#old_password').val();  
+                    //mengirimkan old_password dan mengecek ke database ketersediaanya.
+                        $.ajax({       
+                        method: "POST",      
+                        dataType: 'json',
+                        url: "<?php echo base_url(); ?>gym/check_account", 
+                        data: { opassword: fopassword} ,  
+                        success:function(data){
+                            //jika tersedia maka ambil data. data yang dikirimkan controller berupa nilai TRUE or FALSE
+                            document.getElementById("new").disabled = data;
+                            document.getElementById("confirm").disabled = data;
+                            //fungsinya untuk memanipulasi input text id new dan confirm
+                        }
+                        });
+            
+                });
+                //fungsi ini digunakan untuk cek kesamaan nilai antara inputan new dan confirm
+            $('#confirm').change(function(){    
+            var fnew = $('#new').val();  
+            var fconfirm = $('#confirm').val();  
+                if(fnew==fconfirm){
+                    document.getElementById("submit").disabled = false;
+                }else{
+                    document.getElementById("submit").disabled = true;
+                }
+
+            });
+        });
 
         //edit
         $('#btnEditPro').click(function(){
@@ -391,5 +519,81 @@ $(function(){
                 });
             // }
         });
+
+        $('#showdata').on('click', '.item-edit', function(){
+            // console.log('as');
+            var kd_barang = $(this).attr('data');
+            $('#upGambar').modal('show');
+            $('#upGambar').find('.modal-title').text('Edit Barang');
+            $('#myForm').attr('action', '<?php echo base_url() ?>barang/qupdateBarang');
+            // $.ajax({
+            //     type: 'ajax',
+            //     method: 'post',
+            //     url: '<?php echo base_url() ?>barang/editBarang',
+            //     data: {kd_barang: kd_barang},
+            //     async: false,
+            //     success: function(data){
+            //         var a = JSON.parse(data);
+
+            //         $('input[name=txtHarga]').val(a[0].harga);
+            //         $('input[name=txtStok]').val(a[0].stok);
+            //         $('input[name=txtId]').val(a[0].kd_barang);
+            //     },
+            //     error: function(){
+            //         alert('Could not Edit Data');
+            //     }
+            // });
+        });
+
+
+        $(function showGambar(){
+            console.log('kontol');
+        $.ajax({
+            type: 'ajax',
+            url: '<?php echo base_url('gym/showGambar'); ?>',
+            success: function(data){
+                var a = JSON.parse(data);
+
+                var html = '';
+                var i;
+                for(i=0; i<a.length; i++){
+                
+                    html +='<tr>'+
+                                '<td><img src ="../adagym.com/assets/'+a[i].gambar+'"></td>'+
+                                '<td>'+a[i].deskripsi+'</td>'+
+                                
+                                '<td>'+
+                                    '<a href="javascript:;" class="btn btn-info item-edit" data="'+a[i].kd_gym+'">Edit</a>'+
+                                '</td>'+
+                            '</tr>';
+                }
+                $('#showdata').html(html);
+            },
+            error: function(){
+                alert('Could not get Data from Database');
+            }
+        });
+    });    
+
+       
 });
+
+</script>
+<![endif]--> 
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/dropify/dropify/dropify.min.css'?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/dropify/css/bootstrap.css'?>">
+<script type="text/javascript" src="<?php echo base_url().'assets/dropify/js/jquery.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/dropify/js/bootstrap.js'?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'assets/dropify/dropify/dropify.min.js'?>"></script>
+<script type="text/javascript">
+    $('.dropify').dropify({
+           messages: {
+               default: 'Drag atau drop untuk memilih gambar',
+               replace: 'Ganti',
+               remove:  'Hapus',
+               error:   'error'
+           }
+   });
+
+
 </script>

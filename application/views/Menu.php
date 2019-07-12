@@ -7,7 +7,7 @@
                 <ul class="nav navbar-nav">
                     <?php if($this->session->userdata('akses')=='1'):?>
                     <li>
-                        <a href="<?php echo base_url('page')?>"><i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
+                        <a href="<?php echo base_url('page/dashboard_admin')?>"><i class="menu-icon fa fa-dashboard"></i>Dashboard</a>
                     </li>
 
                     <li><a href="<?php echo base_url('page/data_gym')?>"><i class="menu-icon fa fa-laptop"></i>Data Gym</a></li>
@@ -20,7 +20,9 @@
                     </li>
 
                     <h3 class="menu-title">Membership GYM</h3><!-- /.menu-title -->
-                    
+                    <li>
+                        <a href="<?php echo base_url('page/pembayaran')?>"><i class="menu-icon fa fa-laptop"></i>Data Pembayaran</a>
+                    </li>
 
                     <li>
                         <a href="<?php echo base_url('page/data_iuran')?>"><i class="menu-icon fa fa-laptop"></i>Data Iuran</a>

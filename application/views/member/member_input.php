@@ -1,11 +1,11 @@
-<?php $this->load->view('header_in');?> 
+<?php $this->load->view('header-in');?> 
 
   <!--  -->
   <div class="breadcrumbs" style="margin-top:5px">
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                    <h1>Data Member</h1>
+                    <h1>Data Iuran</h1>
                     </div>
                 </div>
             </div>
@@ -13,8 +13,8 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li>Data Member </li>
-                            <li class="active">Form Member</li>
+                            <li>Data Iuran </li>
+                            <li class="active">Form Iuran</li>
                         </ol>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
           <!-- general form elements -->
           <!-- <div class="box box-primary"> -->
             <!-- <div class="box-header with-border"> -->
-            <div class="card" style="margin-top:20px">
+            <div class="card">
               <div class="card-header">
                   <strong class="card-title">Form Member</strong>
               </div>
@@ -75,7 +75,7 @@ echo form_open('member/input_simpan');
               </div>
           		<div class="form-group">
                     <label for="exampleInputEmail1">Alamat Member</label>
-                    <input type="text" class="form-control" name="alamat" placeholder="Masukan Alamat Member">
+                    <input type="text" class="form-control" name="alamat"  placeholder="Masukan Alamat Member">
               </div>
           		<div class="form-group">
                     <label for="exampleInputEmail1">Email Member</label>

@@ -12,7 +12,7 @@
                 confirmButtonColor: "#1FAB45",
                 confirmButtonText: "Save",
                 cancelButtonText: "Cancel",
-                buttonsStyling: true
+                buttonsStyling: true 
             }).then(function() {
                 $.ajax({
                     type    : 'post',

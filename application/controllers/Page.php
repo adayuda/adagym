@@ -12,6 +12,10 @@
 	  function index(){
 	    $this->load->view('dashboard');
 	  }
+	  
+	  function dashboard_admin(){
+	    $this->load->view('dashboard_admin');
+	  }
 
 	  function data_op(){
 	    // function ini hanya boleh diakses oleh op 
@@ -84,6 +88,13 @@
 	  function lap_iuran(){
 		if($this->session->userdata('akses')=='2'){
 			redirect('iuran/laporan');
+		   }else{		
+			 echo "Anda tidak berhak mengakses halaman ini";
+		   } 
+	  }
+	  function pembayaran(){
+		if($this->session->userdata('akses')=='2'){
+			redirect('Buktibayar');
 		   }else{		
 			 echo "Anda tidak berhak mengakses halaman ini";
 		   } 

@@ -77,6 +77,45 @@
 
   	function getlastid(){
   		return $this->db->insert_id();
-  	}
+	  }
+	function addtblmemberDaf( $nama, $umur, $jk, $alamat, $email, $status, $telp){
+		$data = array(
+			'kd_member' => NULL,
+			'nama'		=> $nama,
+			'umur'		=> $umur,
+			'jk'		=> $jk,
+			'no_telp'	=> $telp,
+			'alamat'	=> $alamat,
+			'email'		=> $email,
+			'status'	=> $status
+		);
+		$this->db->insert('tbl_member',$data);
+	}
+	function addSaveBukbar($image,$id,$rek,$bank,$total){
+		$status  = "sudah bayar";
+		$data = array(
+            'bukti_bayar' 	=> $image,
+			'nama_rek' 		=> $rek, 
+			'nama_bank' 	=> $bank, 
+			'total_Bayar'	=> $total, 
+			'status'		=> $status
+		);
+		$this->db->where(array('kd_daftar'=> $id));
+		$this->db->update('tbl_daftar',$data);
+		//status iuran 
+		$kdm = $this->db->query("SELECT tbl_daftar.kd_member 
+								 FROM tbl_daftar 
+								 WHERE tbl_daftar.kd_daftar = ".$id)->result();
+		$kdmem = $kdm[0]->kd_member;
+		$dt = array(
+			'status' => $status
+		);
+		$this->db->where(array('kd_member'=> $kdmem));
+		$this->db->update('tbl_iuran',$dt);
+
+		$this->db->where(array('kd_member'=> $kdmem));
+		$this->db->update('tbl_member',$dt);
+	}
+	
 }
 ?>

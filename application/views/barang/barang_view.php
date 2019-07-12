@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-<div class="content mt-3">
+<div class="content mt-3"> 
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-md-12">
@@ -126,7 +126,7 @@
                     <button id = "btnSave" class="btn btn-primary">Save</button>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 
 

@@ -4,7 +4,7 @@
  */ 
 class M_barang extends Ci_Model
 {
-	var $tabel = 'tbl_barang_gym';
+	var $tabel = 'tbl_barang_gym'; 
 	
 	public function showAllBarang($gym){
 		// // $this->db->order_by('created_at', 'desc');
@@ -78,7 +78,7 @@ class M_barang extends Ci_Model
 
 	function deleteBarang(){
 		$id = $this->input->get('kd_barang');
-		$this->db->where('kd_barang', $id);
+		$this->db->where('kd_barang', $id); 
 		$this->db->delete($this->tabel);
 		if($this->db->affected_rows() > 0){
 			return array('error' => false, 'message' => 'Success');

@@ -11,11 +11,11 @@
 			return($query);
 
 		}
-		function auth_member($username, $password){
-			$query = $this->db->query("SELECT * FROM tbl_member WHERE username='$username' AND password = '$password' LIMIT 1");
-			return($query);
+		// function auth_member($username, $password){
+		// 	$query = $this->db->query("SELECT * FROM tbl_member WHERE username='$username' AND password = '$password' LIMIT 1");
+		// 	return($query);
 
-		}
+		// }
 		
 
 		

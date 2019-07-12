@@ -1725,6 +1725,7 @@ input.search-query {
   margin-bottom: 0;
   vertical-align: middle;
   *zoom: 1;
+  height:30px;
 }
 
 .form-search .hide,

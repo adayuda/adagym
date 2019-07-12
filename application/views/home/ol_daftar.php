@@ -235,11 +235,11 @@ $(document).ready(function () {
                         <span class="gallery-hover-4col hidden-phone hidden-tablet">
                             <span class="gallery-icons">
                                 <a href="img/gallery/gallery-img-1-full.jpg" class="item-zoom-link lightbox" title="Custom Illustration" data-rel="prettyPhoto"></a>
-                                <a href="<?php echo base_url('home/detail');?>" class="item-details-link"></a>
+                                <a href="<?php echo base_url('home/detail/'. $g->kd_gym );?>" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="gallery-single.htm"><img src="../../adagym.com/assets/gambar.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm"><?php echo $g->nama ;?></a>For an international ad campaign.</span>
+                        <a href="gallery-single.htm"><img src="../../adagym.com/assets/<?php echo $g->gambar ;?>.jpg" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm"><?php echo $g->nama ;?></a><?php echo "" ;?> </span>
                     </li>
                     <?php
                     }
