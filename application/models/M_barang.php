@@ -60,7 +60,7 @@ class M_barang extends Ci_Model
 			return false;
 		}
 	}
-
+ 
 	public function updateBarang(){
 		$id = $this->input->post('id');
 		$field = array(
@@ -131,7 +131,7 @@ class M_barang extends Ci_Model
 		return $query->num_rows();
 	}
 
-	public function addTblBarang($kd, $nama) {
+	public function addTblBarang($kd, $nama) { 
 		$data = array(
 			'kd_barang' 	=> $kd,
 			'nama_barang'	=> $nama

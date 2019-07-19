@@ -50,27 +50,20 @@
 		$query = $this->db->query('SELECT tbl_gym.nama,
 										  tbl_gym.alamat,
 										  tbl_gym.no_telp,
-										  tbl_gym.email
+										  tbl_gym.email,
+										  tbl_gym.harga_daftar
 									FROM tbl_gym
 									WHERE tbl_gym.kd_gym = '.$kd);
-		// foreach($query->result() as $data){
-		// 	$hasil = array(
-		// 		nama 	=> $data->nama,
-		// 		alamat 	=> $data->alamat,
-		// 		no_telp => $data->no_telp,
-		// 		email 	=> $data->email
-		// 	);
-		// 	return $hasil;
-		// }
 		return $query->result();
 	}
-	function showGambar($kd){
-		$query = $this->db->query('SELECT tbl_gym.gambar,
+	function showGambar(){
+		$kd_gym = $this->session->userdata('ses_id');
+		$gambar = $this->db->query('SELECT tbl_gym.gambar,
 										  tbl_gym.deskripsi
 									FROM tbl_gym
-									WHERE tbl_gym.kd_gym = '.$kd);
+									WHERE tbl_gym.kd_gym = '.$kd_gym);
 		
-		return $query->result();
+		return $gambar->result();
 	}
 
 	function updateGym($kd){
@@ -80,7 +73,8 @@
 			'nama'			=>$this->input->post('nama'),
 			'alamat'		=>$this->input->post('alamat'),
 			'no_telp'		=>$this->input->post('no_telp'),
-			'email'		 	=>$this->input->post('email')
+			'email'		 	=>$this->input->post('email'),
+			'harga_daftar'	=>$this->input->post('haDaf')
 		);
 		$this->db->where('kd_gym', $id);
 		$this->db->update('tbl_gym', $field);
@@ -114,6 +108,17 @@
 									WHERE tbl_gym.kd_gym = '.$kd
 											);
 		return $gym;
+	}
+	function desGambar($dt){
+		$kd_gym = $this->input->post('txtid');
+		
+		$this->db->where('kd_gym', $kd_gym);
+		$this->db->update('tbl_gym', $dt);
+		if($this->db->affected_rows() > 0){
+			return array('error' => false, 'message' => 'success', 'data' => $this->input->post());
+		}else{ 
+			return array('error' => true, 'message' => "id:".$id.", error:".json_encode($field), 'data' => $this->input->post());
+		}
 	}
  }
 ?>

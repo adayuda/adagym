@@ -1,7 +1,7 @@
 <?php
 	class mail extends CI_Controller{
 		
-		function kirim_email(){
+		function kirim_email($email){
 			
 	        // Konfigurasi email.
 	        $config = [
@@ -28,7 +28,7 @@
 	 
 	        // Pengirim dan penerima email.
 	        $this->email->from('putuyudapradnyana@gmail.com');    // Email dan nama pegirim.
-	        $this->email->to($this->input->post('email'));                       // Penerima email.
+	        $this->email->to($email);                       // Penerima email.
 	 
 	        // Lampiran email. Isi dengan url/path file.
 	        $this->email->attach('');

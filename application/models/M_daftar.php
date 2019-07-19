@@ -40,7 +40,7 @@ class M_daftar extends Ci_Model
 		DESC LIMIT 1 ")->result();
 			// print_r ($newkode);
 			// return ;
-
+ 
 		 $data = array(
 			 'kd_daftar' 	=> NULL,
 			 'kd_gym'	 	=> $gym,
@@ -52,10 +52,10 @@ class M_daftar extends Ci_Model
 		 $this->db->insert('tbl_daftar',$data); 
 	 }
 
-	 function dataBayar(){
+	 function dataBayar($gym){
 		 $stts = 'sudah bayar';
-		 $gym = $this->session->userdata('ses_id');
-		 $bayar = $this->db->query("SELECT tbl_daftar.kd_daftar,
+		//  $gym = $this->session->userdata('ses_id');
+		 $query = $this->db->query("SELECT tbl_daftar.kd_daftar,
 		 						  tbl_member.nama,
 								  tbl_daftar.nama_rek,
 								  tbl_daftar.nama_bank,
@@ -66,14 +66,15 @@ class M_daftar extends Ci_Model
 							ON tbl_daftar.kd_member = tbl_member.kd_member
 							WHERE tbl_daftar.kd_gym ='".$gym."'
 							 AND tbl_daftar.status = '".$stts."'");
-		return $bayar;
+		return $query->result();
 	 }
 	
 
-	 function accSave($kddaf){
+	 function accSave(){
+		$id = $this->input->get('kd_daftar');
 		$kd = $this->db->query("SELECT tbl_daftar.kd_member
 								FROM tbl_daftar
-								WHERE tbl_daftar.kd_daftar =".$kddaf)->result();
+								WHERE tbl_daftar.kd_daftar =".$id)->result();
 		$kdm = $kd[0]->kd_member;
 		$lama = $this->db->query("SELECT tbl_paket.lama
 								FROM tbl_paket
@@ -95,7 +96,7 @@ class M_daftar extends Ci_Model
 			'tgl_daftar' => $today,
 			'status'	 => $status
 		);
-		$this->db->where(array('kd_daftar'=> $kddaf));
+		$this->db->where(array('kd_daftar'=> $id));
 		$this->db->update('tbl_daftar',$dataDaf);
 
 		$dataIur = array(
@@ -105,7 +106,11 @@ class M_daftar extends Ci_Model
 		); 
 		$this->db->where(array('kd_iuran'=> $kdi));
 		$this->db->update('tbl_iuran',$dataIur);
-
+		if($this->db->affected_rows() > 0){
+			return array('error' => true, 'message' => 'success', 'data' => $this->input->post());
+		}else{ 
+			return array('error' => false, 'message' => "id:".$id.", error:".json_encode($dataDaf), 'data' => $this->input->post());
+		}
 	 }
 
  }

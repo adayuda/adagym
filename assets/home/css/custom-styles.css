@@ -60,7 +60,7 @@ blockquote.pull-right {border-right: 5px solid #999;}
 /**************************************
 / Header
 **************************************/
-.logo { margin-top:40px; }
+.logo { margin-top:40px; width: 350px;}
 .logo img { padding-right:20px; }
 .logo h5 { display: inline-block; }
 .headline { margin-bottom:20px; }
@@ -76,7 +76,7 @@ blockquote.pull-right {border-right: 5px solid #999;}
 	.headline .lead {display: none;}
 }
 
-.navigation { margin-top:40px; }
+.navigation { margin-top:65px; }
 .navigation .navbar { 
 	float:right; background:#f8f8f8;
 	border-bottom: 1px dotted #a9a9a9;

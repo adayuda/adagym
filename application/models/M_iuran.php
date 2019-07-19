@@ -11,6 +11,8 @@
 		// }kontol panja
  
 		function view(){
+			$stts = 'aktif';
+			$stt = 'kadaluarsa';
 			$kd_gym = $this->session->userdata('ses_id');
 			$iuran 	= $this->db->query('SELECT tbl_member.nama, 
 										-- MONTH(tgl_bayar) AS awal, MONTH(tgl_akhir) AS akhir, 
@@ -21,7 +23,11 @@
 										tbl_iuran.harga,
 										tbl_iuran.tgl_akhir,
 										tbl_iuran.tgl_bayar,
-										tbl_iuran.kd_iuran, tbl_iuran.kd_member
+										tbl_iuran.kd_iuran, 
+										tbl_iuran.kd_member,
+										tbl_iuran.status,
+										tbl_member.email,
+										tbl_iuran.kd_iuran
 										FROM tbl_iuran
 										JOIN tbl_member
 										ON tbl_iuran.kd_member = tbl_member.kd_member 
@@ -29,8 +35,10 @@
 										ON tbl_iuran.kd_paket = tbl_paket.kd_paket
 										INNER JOIN tbl_gym
 										ON tbl_gym.kd_gym = tbl_iuran.kd_gym
-										WHERE tbl_iuran.kd_gym = '. $kd_gym.
-										' ORDER BY tbl_member.nama ASC, tbl_iuran.tgl_akhir ASC'
+										WHERE tbl_iuran.kd_gym ="'.$kd_gym.'"
+										 AND tbl_iuran.status = "'.$stts.'"
+										 OR tbl_iuran.status = "'.$stt.'"
+										ORDER BY tbl_member.nama ASC, tbl_iuran.tgl_akhir ASC'
 										);
 			return $iuran;
 		}
@@ -106,6 +114,14 @@
 				'status'   => $status
 			);
 			$this->db->insert('tbl_iuran',$data);
+		}
+		function uSKadaluarsa($kadir){
+			
+			$field = array(
+				'status'	=> "kadaluarsa"
+			);
+			$this->db->where('kd_iuran', $kadir);
+			$this->db->update('tbl_iuran', $field);
 		}
 		
 	}

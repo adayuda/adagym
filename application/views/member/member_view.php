@@ -39,7 +39,7 @@
 											<th>No Telp</th>
 											<th>Alamat </th>
 											<th>Email</th>
-											<th width="30px">Act</th>
+											<th>Status</th>
 											
 										</tr>
 									</thead>
@@ -56,7 +56,8 @@
 												<td>".$m->no_telp."</td>
 												<td>".$m->alamat."</td>
 												<td>".$m->email."</td>
-												<td>".anchor('member/delete/'.$m->kd_member,'<i class="fa fa-trash-o"></i>')."</td>   
+												<td>".$m->status."</td>
+												 
 												
 												
 											  </tr>
@@ -73,7 +74,8 @@
 											<th>No Telp</th>
 											<th>Alamat </th>
 											<th>Email</th>
-											<th width="30px">Act</th>
+											<th>Status</th>
+											<!-- <th width="30px">Act</th> -->
 											
 										</tr>
 									</tfoot>

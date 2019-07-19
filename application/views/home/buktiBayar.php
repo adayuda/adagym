@@ -50,17 +50,22 @@
     
       <div class="row header"><!-- Begin Header -->
       
-        <!-- Logo
-        ================================================== -->
-        <div class="span5 logo">
-        	<a href="index.htm"><img src="../assets/adah.png" alt="" /></a>
-            <h5>Big Things... Small Packages</h5>
+      <div class="span5 logo">
+        	<a href=""><img src="../../adagym.com/assets/logone.png" alt="" /></a>
+           
         </div>
         
         <!-- Main Navigation
         ================================================== -->
-        <!--  -->
-
+        <div class="span7 navigation">
+            <div class="navbar hidden-phone">
+            <ul class="nav">
+            <li ><a href="<?=  base_url('home/index');?>">  Home  </a></li>
+             <li><a href="#">  Daftar  </a></li>
+             <li class="active" ><a href="<?=  base_url('home/bukBar');?>">  Pembayaran </a></li>
+            </ul>
+            </div>
+</div>
       </div>
       
       <div class="row" >

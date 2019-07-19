@@ -34,7 +34,7 @@
                                 <th>Nama Barang</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
-                                <th style="width:50px;">Action</th>
+                                <th style="width:100px;">Action</th>
                             </tr>
                         </thead>
                         <tbody id="showdata"></tbody>
@@ -44,7 +44,7 @@
                             <th>Nama Barang</th>
                             <th>Harga</th>
                             <th>Stok</th>
-                            <th style="width:50px;">Action</th>
+                            <th style="width:100px;">Action</th>
                         </tr>
                         </tfoot>
                     </table>
@@ -272,7 +272,7 @@
                 async: false,
                 success: function(data){
                     var a = JSON.parse(data);
-
+ 
                     $('input[name=txtHarga]').val(a[0].harga);
                     $('input[name=txtStok]').val(a[0].stok);
                     $('input[name=txtId]').val(a[0].kd_barang);

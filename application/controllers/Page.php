@@ -10,7 +10,7 @@
 	  }
 
 	  function index(){
-	    $this->load->view('dashboard');
+	      $this->load->view('dashboard');
 	  }
 	  
 	  function dashboard_admin(){

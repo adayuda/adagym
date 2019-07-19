@@ -51,7 +51,8 @@
 	 									   tbl_member.jk,
 	 									   tbl_member.no_telp,
 	 									   tbl_member.alamat,
-	 									   tbl_member.email
+	 									   tbl_member.email,
+										   tbl_member.status
 	 								FROM  tbl_member
 	 								INNER JOIN tbl_daftar 
 	 								ON tbl_member.kd_member = tbl_daftar.kd_member

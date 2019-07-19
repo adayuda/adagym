@@ -96,58 +96,22 @@ $(document).ready(function () {
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="index.htm"><img src="../../adagym.com/assets/adah.png" alt="" /></a>
-            <h5>Big Things... Small Packages</h5>
+        	<a href=""><img src="../../adagym.com/assets/logone.png" alt="" /></a>
+           
         </div>
         
         <!-- Main Navigation
         ================================================== -->
         <div class="span7 navigation">
-            <!-- <div class="navbar hidden-phone">
+            <div class="navbar hidden-phone">
             
             <ul class="nav">
-            <li class="dropdown active">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="index.htm">Home <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="index.htm">Full Page</a></li>
-                    <li><a href="index-gallery.htm">Gallery Only</a></li>
-                    <li><a href="index-slider.htm">Slider Only</a></li>
-                </ul>
-            </li>
-           <li><a href="features.htm">Features</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="page-full-width.htm">Pages <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="page-full-width.htm">Full Width</a></li>
-                    <li><a href="page-right-sidebar.htm">Right Sidebar</a></li>
-                    <li><a href="page-left-sidebar.htm">Left Sidebar</a></li>
-                    <li><a href="page-double-sidebar.htm">Double Sidebar</a></li>
-                </ul>
-            </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="gallery-4col.htm">Gallery <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="gallery-3col.htm">Gallery 3 Column</a></li>
-                    <li><a href="gallery-4col.htm">Gallery 4 Column</a></li>
-                    <li><a href="gallery-6col.htm">Gallery 6 Column</a></li>
-                    <li><a href="gallery-4col-circle.htm">Gallery 4 Round</a></li>
-                    <li><a href="gallery-single.htm">Gallery Single</a></li>
-                </ul>
-             </li>
-             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="blog-style1.htm">Blog <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="blog-style1.htm">Blog Style 1</a></li>
-                    <li><a href="blog-style2.htm">Blog Style 2</a></li>
-                    <li><a href="blog-style3.htm">Blog Style 3</a></li>
-                    <li><a href="blog-style4.htm">Blog Style 4</a></li>
-                    <li><a href="blog-single.htm">Blog Single</a></li>
-                </ul>
-             </li>
-             <li><a href="page-contact.htm">Contact</a></li>
+            <li class="active"><a href="<?=  base_url('home/index');?>">  Home  </a></li>
+             <li><a href="#">  Daftar  </a></li>
+             <li><a href="<?=  base_url('home/bukBar');?>">  Pembayaran </a></li>
             </ul>
            
-            </div> -->
+            </div> 
 
             <!-- Mobile Nav
             ================================================== -->
@@ -193,11 +157,11 @@ $(document).ready(function () {
         <div class="span8">
             <div class="flexslider">
               <ul class="slides">
-                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
-                <li><a href="gallery-single.htm"><img src="../../adagym.com/assets/slider.png" alt="slider" /></a></li>
+                <li><img src="../../adagym.com/assets/2.png" alt="slider" /></li>
+                <li><img src="../../adagym.com/assets/3.png" alt="slider" /></li>
+                <li><img src="../../adagym.com/assets/2.png" alt="slider" /></li>
+                <li><img src="../../adagym.com/assets/3.png" alt="slider" /></li>
+               
               </ul>
             </div>
         </div>
@@ -226,7 +190,8 @@ $(document).ready(function () {
 
             <div class="row clearfix no-margin">
             <ul class="gallery-post-grid holder">
-            		<?php foreach ($gym as $g ) {
+            
+                    <?php foreach ($gym as $g ) {
             			# code...
             		// gallery
             		?>
@@ -238,8 +203,8 @@ $(document).ready(function () {
                                 <a href="<?php echo base_url('home/detail/'. $g->kd_gym );?>" class="item-details-link"></a>
                             </span>
                         </span>
-                        <a href="gallery-single.htm"><img src="../../adagym.com/assets/<?php echo $g->gambar ;?>.jpg" alt="Gallery"></a>
-                        <span class="project-details"><a href="gallery-single.htm"><?php echo $g->nama ;?></a><?php echo "" ;?> </span>
+                        <a href="gallery-single.htm"><img src="../../adagym.com/assets/gambar/<?php echo $g->gambar ;?>" alt="Gallery"></a>
+                        <span class="project-details"><a href="gallery-single.htm"><?php echo $g->nama ;?></a><?php echo $g->deskripsi ;?> </span>
                     </li>
                     <?php
                     }

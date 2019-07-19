@@ -9,6 +9,7 @@
 		{ 
 			parent::__construct();
 			$this->akses=$this->session->userdata('akses');
+			$this->load->library('upload'); 
 			$this->load->model('m_gym', 'g');
 		}
 		function index(){
@@ -77,6 +78,39 @@
 			$kd = $this->session->userdata('ses_id');
 			echo json_encode($this->g->showGambar($kd));	
 		}
+
+		function desGambar(){
+		$config['upload_path'] = './assets/gambar/'; //path folder
+		$config['allowed_types'] = 'gif|jpg|png|jpeg'; //Allowing types
+		$config['encrypt_name'] = TRUE; //encrypt file name 
+			
+		$this->upload->initialize($config);
+		if(!empty($_FILES['filefoto']['name'])){
+
+			if ($this->upload->do_upload('filefoto')){
+				
+				$data   = $this->upload->data();
+				$dt = array(
+					'gambar'  => $data['file_name'],
+					'deskripsi'	=> $this->input->post('content')
+						);
+
+				echo json_encode($this->g->desGambar($dt));
+				echo "Upload Successful";
+
+			}else{
+				echo "Upload failed. Image file must be gif|jpg|png|jpeg";
+			}
+					
+		}else{
+			echo "Failed, Image file is empty.";
+		}
+			
+		}
+		public function editDesGam() { 
+			$kd 	= $this->session->userdata('ses_id');
+			echo json_encode($this->g->showGambar($kd));
+		}  
  } 
 
 ?>

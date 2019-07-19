@@ -1,4 +1,29 @@
 <?php $this->load->view('header');?>
+<script>
+   
+   function sentEmail(akhir,kadir,email,nama){
+    
+    
+     $.ajax({
+       method : 'POST',
+       url: '<?=base_url('iuran/sentEmail')?>',
+       data : {
+         kadir : kadir,
+         akhir : akhir,
+         email : email,
+         nama : nama
+       },
+       success:function(){
+         console.log('nyak');
+       },
+       error:function(){
+       console.log('singnyak');
+       }
+     });
+   }
+</script>
+
+
           <div class="breadcrumbs" style="margin-top:5px">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -29,6 +54,8 @@
 
                             </div>
                             <div class="card-body">
+
+                            
                              <?php
                               $year = date("Y");
                               if(isset($_GET['year'])) {
@@ -68,7 +95,7 @@
                                     foreach ($iuran as $kd_member => $i) {
                                       // $awal   = $i->awal; 
                                       // $akhir  = $i->akhir; 
-                                      $jani   = date('4');
+                                      $jani   = date('m');
 
                                       echo "<tr>
 
@@ -111,6 +138,7 @@
                                       $dt = 0;
                                       $start = intval($year."01");
                                       $end = intval($year."12");
+                                      $day = Date("Y-m-d");
 
                                       for($x = $start; $x <= $end; $x++){
                                         $isCheck = false;
@@ -145,9 +173,30 @@
 
                                       echo "</tr>";
                                       $no++;
+                                    
+                                    echo $data['kd_iuran'];
+                                    if($day > $i['tgl_akhir']){
+                                      if($data['status'] == 'aktif'){
+                                        $a =  $i['tgl_akhir'];
+                                        $kadir = $data['kd_iuran'];
+                                        $email = $data['email'];
+                                        $nama  = $i['nama'];
+                                        ?>
+                                        <script>
+                                        sentEmail('<?php echo $a ?>','<?php echo $kadir ?>','<?php echo $email?>','<?php $nama?>');
+                                        </script>
+                                        
+                                      <?php
+                                      }else{
+
+                                      }
+                                    }else{
+                                      echo "no";
                                     }
-                                   
+                                  }
                                     ?>
+
+ 
   <?php $this->load->view('footer'); ?>
 
   

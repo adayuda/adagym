@@ -91,8 +91,7 @@
  			'no_telp'	=> $this->input->post('tlp'),
  			'alamat'	=> $this->input->post('alamat'),
  			'email'		=> $this->input->post('email'),	
- 			'username'	=> $this->input->post('nama'),	
-			'password'	=> $pass);
+			'status'	=> "aktif");
  		$this->m_member->add($data);
  		//$this->kirim_email();
  		$newid 		= $this->m_member->getlastid(); 

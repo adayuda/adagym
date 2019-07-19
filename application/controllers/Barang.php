@@ -7,7 +7,7 @@
 		function __construct(){		
 			parent::__construct();
 			$this->load->model('M_barang','p');
-			$this->akses=$this->session->userdata('akses');
+			$this->akses=$this->session->userdata('akses'); 
 		}
 
 		function index(){
@@ -29,11 +29,11 @@
 			echo json_encode($this->p->showAllBarang($gym));
 		}
  
-		public function editBarang() {
+		public function editBarang() { 
 			$gym 	= $this->session->userdata('ses_id');
 			$kd 	= $this->input->post('kd_barang');
 			echo json_encode($this->p->getperbarang($gym, $kd));
-		} 
+		}  
 
 		public function qupdateBarang() { 
 			echo json_encode($this->p->updateBarang());

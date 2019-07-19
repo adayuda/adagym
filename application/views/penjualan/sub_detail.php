@@ -17,7 +17,7 @@
             <th>Total</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody> 
         <?php
             foreach($subtransaksi as $a) {
                 echo 

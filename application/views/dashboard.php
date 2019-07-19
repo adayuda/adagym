@@ -25,9 +25,10 @@
     <script type="text/javascript" src="<?php echo base_url('assets/sweetalert/sweetalert2.min.js');?>"></script>
 
     <link rel="stylesheet" href="<?php echo base_url('assets/assets/css/style.css')?>">
-
+    
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
 </head>
 
 <body>
@@ -40,7 +41,7 @@
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button> -->
-                <a class="navbar-brand" href="./"><img src="assets/ada.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="assets/logone.png" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="../assets/logo2.png" alt="Logo"></a>
             </div>
 
@@ -94,8 +95,13 @@
         <div class="breadcrumbs" style="margin-top:5px">
             <div class="col-sm-4">
                 <div class="page-header float-left">
-                    <div class="page-title">
+                    <!-- <div class="page-title">
                     <h1>Dashboard</h1>
+                    </div> -->
+                    <div class="page-title">
+                    <h1 style="margin-top: 0px;
+                            margin-bottom: 0px;">
+                            Dashboard</h1>
                     </div>
                 </div>
             </div>
@@ -293,7 +299,14 @@
                             <div class="col-md-8">
                                 <input type="text" class="form-control" name="txtEmail"></input>
                             </div>
-                        </div>
+                            </div>  
+                            <div class="form-group">
+                                <label for="name" class="label-control col-md-4">Harga Daftar</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="txtHargaDaf"></input>
+                                </div>
+                            </div>
+                        
                     </form>
                     </div>
                         <div class="modal-footer">
@@ -311,7 +324,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title">Modal title</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body"> 
                     <form id="passForm" action="" method="post" class="form-horizontal">
                         <input type="hidden" name="txtId" value="0">
                         <div class="form-group">
@@ -351,26 +364,29 @@
                             <h4 class="modal-title">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                    <form id="myForm" action="" method="post" class="form-horizontal">
-                        <input type="hidden" name="txtId" value="0">
+                    <form id="gamForm" action="" method="post" class="form-horizontal">
+                        <input type="hidden" name="txtid" value="<?= $this->session->userdata('ses_id');?>">
                         <div class="form-group">
                             <label for="name" class="label-control col-md-4">Deskripsi</label>
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" name="txtHarga"></input>
+                            <div class="col-md-12">
+                                <textarea rows="8" name="content" id="conten" class="form-control"></textarea>
                             </div>
                         </div>
                             <div class="form-group">
                             <label for="name" class="label-control col-md-4">Gambar</label>
-                            <div class="col-md-8">
-                            <input type="file" name="filefoto" class="dropify" data-height="300">
+                            <div class="col-md-12">
+                            <img id="image_preview" alt="image preview"/>
+                            <!-- <img id="img_baru"> -->
+                            <input type="file" name="filefoto" id= "image_source"  />
                             </div>
                         </div>
-                    </form>
+                     
                     </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button id = "btnSave" class="btn btn-primary">Save</button>
+                    <button id = "btn_upGam" class="btn btn-primary" type="submit">Save</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -433,6 +449,7 @@ $(function(){
                     $('input[name=txtAlamat]').val(a[0].alamat);
                     $('input[name=txtTelp]').val(a[0].no_telp);
                     $('input[name=txtEmail]').val(a[0].email);
+                    $('input[name=txtHargaDaf]').val(a[0].harga_daftar);
                 },
                 error: function(){
                     alert("kd_gym = "+kd_gym );
@@ -449,6 +466,7 @@ $(function(){
             var alamat = $('input[name=txtAlamat]');
             var no_telp = $('input[name=txtTelp]');
             var email = $('input[name=txtEmail]');
+            var haDaf  = $('input[name=txtHargaDaf]');
             var result = '';
             if(nama.val()==''){
                 nama.parent().parent().addClass('has-error');
@@ -473,6 +491,11 @@ $(function(){
             }else{
                 email.parent().parent().removeClass('has-error');
                 result +='4';
+            }if(haDaf.val()==''){
+                haDaf.parent().parent().addClass('has-error');
+            }else{
+                haDaf.parent().parent().removeClass('has-error');
+                result +='5';
             }
 
             // if(result=='12'){
@@ -486,7 +509,8 @@ $(function(){
                         nama : $('input[name=txtNama]').val(),
                         alamat : $('input[name=txtAlamat]').val(),
                         no_telp : $('input[name=txtTelp]').val(),
-                        email : $('input[name=txtEmail]').val()
+                        email : $('input[name=txtEmail]').val(),
+                        haDaf : $('input[name=txtHargaDaf]').val()
                     },
                     async: false,
                     dataType: 'json',
@@ -519,31 +543,94 @@ $(function(){
                 });
             // }
         });
+        $('#gamForm').submit(function(e){
+            e.preventDefault(); 
+            var url = $('#gamForm').attr('action');
+            var data = $('#gamForm').serialize();
+            //validate form
+            var kd_gym = <?= $this->session->userdata('ses_id');?>;
+            var gam = $('input[name=content]');
+            var des = $('input[name=filefoto]');
+            var result = '';
+            if(gam.val()==''){
+                gam.parent().parent().addClass('has-error');
+            }else{
+                gam.parent().parent().removeClass('has-error');
+                result +='1';
+            }
+            if(des.val()==''){
+                des.parent().parent().addClass('has-error');
+            }else{
+                des.parent().parent().removeClass('has-error');
+                result +='2';
+            }
+
+            // if(result=='12'){
+                $.ajax({
+                    type: 'ajax',
+                    method: 'post',
+                    url: url,
+                    data: new FormData(this),
+                    async: false,
+                    // dataType: 'json',
+                    processData:false,
+                    contentType:false,
+                    cache:false,
+                    success: function(response){
+                        if(!response.error){
+                            $('#upGambar').modal('hide');
+                            $('#gamForm')[0].reset();
+                            if(response.type=='add'){
+                                var type = 'added'
+                            }else if(response.type=='update'){
+                                var type ="updated"
+                            }
+                            
+                            setTimeout(function(){
+                                window.location = "page";},2000);
+                                swal("Deskripsi Gambar update successfully","You clicked the button!","success");
+                                
+                            console.log(response.data);
+                        }else{
+                            alert('Error:'+response.message);
+                            swal("Deskripsi Gambar update successfully","You clicked the button!","error");
+
+                        }
+                    },
+                    error: function(error){
+                        alert('Could not add data');
+                        console.log(error);
+                    }
+                });
+
+            // }
+        });
 
         $('#showdata').on('click', '.item-edit', function(){
-            // console.log('as');
-            var kd_barang = $(this).attr('data');
+            console.log('as');
+            var kd_gym = <?= $this->session->userdata('ses_id');?>;
             $('#upGambar').modal('show');
-            $('#upGambar').find('.modal-title').text('Edit Barang');
-            $('#myForm').attr('action', '<?php echo base_url() ?>barang/qupdateBarang');
-            // $.ajax({
-            //     type: 'ajax',
-            //     method: 'post',
-            //     url: '<?php echo base_url() ?>barang/editBarang',
-            //     data: {kd_barang: kd_barang},
-            //     async: false,
-            //     success: function(data){
-            //         var a = JSON.parse(data);
-
-            //         $('input[name=txtHarga]').val(a[0].harga);
-            //         $('input[name=txtStok]').val(a[0].stok);
-            //         $('input[name=txtId]').val(a[0].kd_barang);
-            //     },
-            //     error: function(){
-            //         alert('Could not Edit Data');
-            //     }
-            // });
+            $('#upGambar').find('.modal-title').text('Deskripsi Dan Gambar');
+            $('#gamForm').attr('action', '<?php echo base_url() ?>gym/desGambar');
+            $.ajax({
+                type: 'ajax',
+                method: 'post',
+                url: '<?php echo base_url() ?>gym/editDesGam',
+                data: {kd_gym: kd_gym},
+                async: false,
+                success: function(data){
+                    var a = JSON.parse(data);
+                    $('#conten').val(a[0].deskripsi);
+                     $('#image_preview').attr("src", 'assets/gambar/'+ a[0].gambar);
+                
+                },
+                error: function(){
+                    alert('Could not Edit Data');
+                }
+            });
         });
+
+        
 
 
         $(function showGambar(){
@@ -559,7 +646,7 @@ $(function(){
                 for(i=0; i<a.length; i++){
                 
                     html +='<tr>'+
-                                '<td><img src ="../adagym.com/assets/'+a[i].gambar+'"></td>'+
+                                '<td><img src ="../adagym.com/assets/gambar/'+a[i].gambar+'"></td>'+
                                 '<td>'+a[i].deskripsi+'</td>'+
                                 
                                 '<td>'+
@@ -574,26 +661,17 @@ $(function(){
             }
         });
     });    
+    function imageGanti(){
+    document.getElementById("image_preview").style.display = "block";
+    var oFReader = new FileReader();
+     oFReader.readAsDataURL(document.getElementById("image-source").files[0]);
 
+    oFReader.onload = function(oFREvent) {
+      document.getElementById("image_preview").src = oFREvent.target.result;
+    };
+  };
        
 });
 
 </script>
-<![endif]--> 
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/dropify/dropify/dropify.min.css'?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/dropify/css/bootstrap.css'?>">
-<script type="text/javascript" src="<?php echo base_url().'assets/dropify/js/jquery.js'?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/dropify/js/bootstrap.js'?>"></script>
-<script type="text/javascript" src="<?php echo base_url().'assets/dropify/dropify/dropify.min.js'?>"></script>
-<script type="text/javascript">
-    $('.dropify').dropify({
-           messages: {
-               default: 'Drag atau drop untuk memilih gambar',
-               replace: 'Ganti',
-               remove:  'Hapus',
-               error:   'error'
-           }
-   });
 
-
-</script>

@@ -17,6 +17,7 @@
 <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/home/css/style-ie.css');?>"/>
+
 <![endif]--> 
 
 <!-- Favicons
@@ -35,6 +36,7 @@
 <script src="<?php echo base_url('assets/home/js/jquery.prettyPhoto.js');?>"></script>
 <script src="<?php echo base_url('assets/home/js/jquery.flexslider.js');?>"></script>
 <script src="<?php echo base_url('assets/home/js/jquery.custom.js');?>"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -48,13 +50,23 @@
         <!-- Logo
         ================================================== -->
         <div class="span5 logo">
-        	<a href="index.htm"><img src="../../assets/adah.png" alt="" /></a>
-            <h5>Big Things... Small Packages</h5>
+        	<a href=""><img src="../../assets/logone.png" alt="" /></a>
+           
         </div>
         
         <!-- Main Navigation
         ================================================== -->
-        <!--  -->
+        <div class="span7 navigation">
+            <div class="navbar hidden-phone">
+            
+            <ul class="nav">
+            <li ><a href="<?=  base_url('home/index');?>">  Home  </a></li>
+             <li class="active"><a href="<?=  base_url('home/detail');?>">  Daftar  </a></li>
+             <li><a href="<?=  base_url('home/bukBar');?>">  Pembayaran </a></li>
+            </ul>
+           
+            </div> 
+</div>
 
       </div><!-- End Header -->
      
@@ -67,10 +79,11 @@
         <div class="span12 gallery-single">
 
             <div class="row">
-                <div class="span6">
-                    <img src="../../assets/galery.png" class="align-left thumbnail" alt="image">
+            <h6 class="title-bg">Daftar : <small>Detail Gym daftar</small></h6>
+                <div class="span4">
+                    <img src="../../assets/gambar/<?=  $gym->gambar; ?>" class="align-left thumbnail" alt="image">
                 </div>
-                <div class="span6">
+                <div class="span8">
                     <h2><?=  $gym->nama; ?></h2>
                     <!-- <p class="lead">For an international ad campaign. Nulla iaculis mattis lorem, quis gravida nunc iaculis ac. Proin tristique tellus in est vulputate luctus</p> -->
                     <p><?=  $gym->deskripsi; ?></p>
@@ -116,6 +129,7 @@
                                 
                                 <h3>Data Diri </h3>
                                 <section>
+                                
                                     <label for="name-2"> Name *</label>
                                     <input id="txtNama" name="txtNama" type="text" class="required">
                                     <label for="age-2"> Umur *</label>
@@ -337,7 +351,7 @@
                     var j = $('#hdaftar').val();
                     var k = $('#hargacng').val();
                     console.log(k);
-                    $.ajax({
+                    $.ajax({ 
                         url:'<?=base_url('home/addData')?>',
                         type: 'POST',
                         dataType: 'json',
@@ -354,7 +368,9 @@
                                hpak : k},
                         success:function(){
                             console.log("success");
-                            
+                            setTimeout(function(){
+                                window.location = "../../home/bukbar";},5000);
+                                swal("Daftar telah berhasil silahikan lihat email anda untuk memilih pembayaran ","You clicked the button!","success");
                             $("#modal-pesan").modal("hide");
                         }
                         

@@ -3,15 +3,21 @@ class Buktibayar extends Ci_Controller{
     function __construct(){
         parent::__construct();
         $this->akses=$this->session->userdata('akses');
+        $this->load->library('upload'); 
         $this->load->model('m_daftar','d');
     }
     function index(){
         if($this->akses==2){
-			$data['bayar'] = $this->d->dataBayar()->result();
-			$this->load->view('home/bayar_view',$data);
+			// $data['bayar'] = $this->d->dataBayar()->result();
+            // $this->load->view('home/bayar_view',$data);
+            $this->load->view('home/test_bayar');
 			}else{ 
 			print_r('error');
 			}	
+    }
+    public function showAllBukbar() {
+        $gym = $this->session->userdata('ses_id');
+        echo json_encode($this->d->dataBayar($gym));
     }
 	function addbukbar(){
         $config['upload_path'] = './assets/gambar/'; //path folder
@@ -44,9 +50,9 @@ class Buktibayar extends Ci_Controller{
                  
     }
     function acc(){
-       $kddaf = $this->uri->segment(3);
-       $this->d->accSave($kddaf);
-       redirect("Buktibayar");
+    //    kddaf = $this->uri->segment(3);
+      echo json_encode($this->d->accSave()); 
+       
     }
 }
 ?>

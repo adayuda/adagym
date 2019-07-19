@@ -1,4 +1,4 @@
-<?php $this->load->view('header');?>
+<?php $this->load->view('header_in');?>
 <div class="breadcrumbs" style="margin-top:5px">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -33,7 +33,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
-    </div>
+    </div> 
 
   </div>
 </div>

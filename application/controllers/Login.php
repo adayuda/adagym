@@ -33,21 +33,6 @@
 		            $this->session->set_userdata('ses_nama',$data['nama']);
 		            redirect('page');
 
-	        }else{ 
-				$cek_member=$this->m_login->auth_member($username,$password);
-				
-				if($cek_member->num_rows() > 0){
-						$data=$cek_member->row_array();
-    					$this->session->set_userdata('masuk',TRUE);
-						$this->session->set_userdata('akses','3');
-						$this->session->set_userdata('ses_id',$data['kd_member']);
-						$this->session->set_userdata('ses_nama',$data['nama']);
-						redirect('page');
-				}else{  // jika username dan password tidak ditemukan atau salah
-						$url=base_url();
-						echo $this->session->set_flashdata('msg','Username Atau Password Salah');
-						redirect($url);
-				}
 	        }
 		}
 		
